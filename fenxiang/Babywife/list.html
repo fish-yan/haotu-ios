@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>列表</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		
+		<link rel="stylesheet" type="text/css" href="css/list.css" />
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="list">
+			<div class="lit">
+				<div class="list_cen">
+					<div class="list_did">
+						<div class="list_cen_left"><img src="images/contact.png" /></div>
+						<div class="list_cen_center">王先生</div>
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			//			查看群成员
+			var videoId = getQueryString("videoId"); //这这是从上一页截取的  
+//			var videoId = 11;
+			listLikeOrStore(1,50);
+
+			function listLikeOrStore(page,size) {
+				$.ajax({
+					type: "get",
+					url: httpUrl + "/api/v1.0/topic/video/likeorstore/listLikeOrStore",
+					async: true,
+					data: {
+						video_id:videoId,
+						type:1,
+						page:page,
+						size:size,
+					},
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.code == 200) {
+							//							先循环群主和管理员
+							var qunzhuHtml = '';
+							$.each(data.data, function(i, item) {
+								qunzhuHtml += '<div class="list_did">' +
+								'			<div class="list_cen_left"><img src="' + item.userImageUrl + '"/></div>' +
+								'			<div class="list_cen_center">' + item.userNickName + '</div>' +
+								'		</div>';
+
+							});
+
+							$(".list_cen").html(qunzhuHtml)
+
+
+						} else {
+							alert(data.msg)
+						}
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

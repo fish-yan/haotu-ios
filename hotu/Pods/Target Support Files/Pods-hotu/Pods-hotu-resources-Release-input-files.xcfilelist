@@ -1,0 +1,14 @@
+${PODS_ROOT}/Target Support Files/Pods-hotu/Pods-hotu-resources.sh
+${PODS_ROOT}/RongCloudIM/RongCloudIM/RongCloud.bundle
+${PODS_ROOT}/RongCloudIM/RongCloudIM/en.lproj
+${PODS_ROOT}/RongCloudIM/RongCloudIM/zh-Hans.lproj
+${PODS_ROOT}/RongCloudIM/RongCloudIM/Emoji.plist
+${PODS_ROOT}/RongCloudIM/RongCloudIM/RCColor.plist
+${PODS_ROOT}/RongCloudIM/RongCloudIM/RCConfig.plist
+${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/JResource.bundle
+${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/en.lproj
+${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/zh-Hans.lproj
+${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/jrmf.cer
+${PODS_ROOT}/RongCloudIM/RongCloudIM/AlipaySDK/AlipaySDK.bundle
+${PODS_ROOT}/RongCloudIM/RongCloudIM/JrmfIMLib/WalletResource.bundle
+${PODS_ROOT}/RongCloudIM/RongCloudIM/RongSticker.bundle

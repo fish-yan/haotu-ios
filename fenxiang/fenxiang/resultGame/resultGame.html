@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		
+		<title>群内双打PK赛</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/resultGame.css"/>
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="result">
+			<div class="title">
+				<div class="title_center">
+					<div class="title_img">
+						<img src='img/touxiang.png'></img>
+					</div>
+					<div class="title_huo">
+						<img src="img/lanhuo.png" />
+					</div>
+					<div class="title_num">
+						<img src='img/kuang.png'></img>
+						<span>500</span>
+					</div>
+				</div>
+				<div class="title_name">
+					LIKING 24小时健身房
+				</div>
+			</div>
+			
+			
+			<div class="active_title">
+				<div class="active_left">
+					<div class="time_time">13:00</div>
+					<div class="time_date">09月21日</div>
+				</div>
+				<div class="active_right">
+					<div class="active_name">第三届羽毛球大赛活动</div>
+					<div class="active_address">
+						<img class="img" src="img/wei2.png"/>
+						<span class="address">
+							国定东路275-8号杨浦体育馆
+						</span>	
+					</div>
+					<div class="active_per">
+						<img class="img" src="img/rentou.png"/>
+						<span class="name_ha">
+							哈哈哈哈
+						</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="ranking">
+				<div class="rank">
+					<div class="rank_one">
+						<p>1</p>
+					</div>
+					<div class="rank_two">
+						<div class="two_img">
+							<img src="img/touxiang.png"/>
+						</div>
+						<div class="name">
+							<div class="name_la">啦啦啦啦</div>
+						
+								<img src="img/nv.png"/>
+							
+						</div>
+					</div>
+					<div class="rank_three">
+						<div class="two_img">
+							<img src="img/touxiang.png"/>
+						</div>
+						<div class="name">
+							<div class="name_la">啦啦啦啦</div>
+						
+								<img src="img/nan.png"/>
+							
+						</div>
+					</div>
+					<div class="rank_four">
+						<p>10</p>
+						<p>胜</p>
+						<p>20</p>
+						<p>负</p>
+						
+					</div>
+				</div>
+				
+				
+			</div>
+			
+			
+		</div>
+	</body>
+	<script type="text/javascript">
+//			var token = "adb09f488aa8404a89ead4d370f5bbd6";
+//			var activityId = 36;
+			var token = getQueryString("token"); //这这是从上一页截取的  
+			var activityId = getQueryString("activity_id"); //这是从上一页截取的  
+			
+			findActivityRank();
+			function findActivityRank(){
+				$.ajax({
+					type:"post",
+					url:httpUrl + "/api/v1.0/rank/findActivityRank",
+					data:{
+						user_token:token,
+						activityId :activityId,
+					},
+					async:true,
+					success:function (data){
+						console.log(data)
+						if(data.code == 200){
+							$(".title_img img").attr('src',data.data.groupBaseInfo.groupLogo)
+							$(".title_name").text(data.data.groupBaseInfo.groupName)
+							$(".title_num span").text(data.data.groupBaseInfo.battleNumber)
+							$(".time_time").text(data.data.activitybaseInfo.startTime.slice(10,16));
+//							$(".time_date").text(data.data.activitybaseInfo.startTime.slice(5,10));
+							var time = data.data.activitybaseInfo.startTime;
+							var timearr = time.replace(" ", ":").replace(/\:/g, "-").split("-");
+							console.log(timearr)
+							var timestr = timearr[1] + "月" + timearr[2] + "日";
+							$(".time_date").text(timestr);
+
+							$(".active_name").text(data.data.activitybaseInfo.activityName);
+							$(".address").text(data.data.activitybaseInfo.activityAddress);
+							$(".name_ha").text(data.data.activitybaseInfo.organizedName);
+							
+							
+							
+							var rankHtml = "";
+							var activity =data.data.ActivityRankResult;
+							for (var i = 0;i < activity.length;i++) {
+								rankHtml += '<div class="rank" onclick="activityDetail('+ activity[i].activityId + ',' +  activity[i].team_id +')">'+
+										    '		<div class="rank_one">'+
+											'		<p>'+ activity[i].rankingNo +'</p>'+
+											'	</div>'+
+											'	<div class="rank_two">'+
+											'		<div class="two_img">'+
+											'			<img src="' + activity[i].memberALogo + '"/>'+
+											'		</div>'+
+											'		<div class="name">'+
+											'			<div class="name_la">'+ activity[i].memberANickName +'</div>'+
+											'				<img src="img/'+ (activity[i].memberASex == 1 ? 'nan' : 'nv') +'.png"/>'+		
+											'		</div>'+
+											'	</div>'+
+											'	<div class="rank_three">'+
+											'		<div class="two_img">'+
+											'			<img src="' + activity[i].memberBLogo + '"/>'+
+											'		</div>'+
+											'		<div class="name">'+
+											'			<div class="name_la">'+ activity[i].memberBNickName +'</div>'+		
+											'				<img src="img/'+ (activity[i].memberBSex == 1 ? 'nan' : 'nv') +'.png"/>'+			
+											'		</div>'+
+											'	</div>'+
+											'	<div class="rank_four">'+
+											'		<p>'+ activity[i].winnerNo +'</p>'+
+											'		<p>胜</p>'+
+											'		<p>'+ activity[i].loserNo +'</p>'+
+											'		<p>负</p>'+	
+											'	</div>'+
+											'</div>';
+							}
+					$(".ranking").html(rankHtml);
+							
+							
+						}				
+						
+					}
+				});
+			}
+			
+			function activityDetail(activity_id,team_id){
+				window.location = "heroDetail.html?token=" + token + '&activity_id=' + activity_id + '&team_id=' + team_id;
+			}
+	</script>
+</html>

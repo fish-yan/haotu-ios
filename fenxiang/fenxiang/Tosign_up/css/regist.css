@@ -1,0 +1,201 @@
+/*css 初始化 */
+
+html,
+body,
+ul,
+li,
+ol,
+dl,
+dd,
+dt,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+form,
+fieldset,
+legend,
+img {
+	margin: 0;
+	padding: 0;
+}
+
+
+/*各浏览器显示不同，去掉蓝色边框*/
+
+fieldset,
+img,
+input,
+button,
+textarea {
+	border: none;
+	padding: 0;
+	margin: 0;
+	outline-style: none;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+
+input {
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+
+/*防止拖动 影响布局*/
+
+textarea {
+	resize: none;
+}
+
+
+/*去掉行内替换元素空白缝隙*/
+
+img {
+	border: 0;
+	vertical-align: middle;
+}
+
+body {
+	font-family: arial;
+}
+
+html {
+	font-size: 57.5%;
+}
+
+.alert{
+	width: 70%;
+	word-wrap:break-word;
+	/*min-height: 6rem;*/
+	background: rgba(0,0,0,0.5);
+	border-radius: 0.5rem;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	color: #fff;
+	font-size: 2rem;
+	text-align: center;
+	/*line-height: 6rem;*/
+	transform: translate(-50%, -50%);
+	display: none;
+	padding: 2rem;
+	
+}
+
+.regist_login{
+	padding-top: 10rem;
+}
+.register {
+	width: 80%;
+	height: 6rem;
+	margin: 1.6rem auto;
+	position: relative;
+	border-bottom: 0.05rem solid #DFE0E1;
+	padding-top: 4rem;
+}
+
+
+
+.phone {
+	width: 81%;
+}
+
+.phone input {
+	width: 80%;
+	height: 3rem;
+	line-height: 3rem;
+	margin: 3rem 0 0 0;
+	/*text-indent: 1rem;*/
+	border: none;
+	font-size: 2rem;
+
+}
+#phone::-webkit-input-placeholder{
+        color: #DFE0E1;
+}
+#phone::-moz-placeholder{  //不知道为何火狐的placeholder的颜色是粉红色，怎么改都不行，希望有大牛路过帮忙指点
+        color: #DFE0E1;        
+}
+#phone:-ms-input-placeholder{  //由于我的IE刚好是IE9，支持不了placeholder，所以也测试不了(⊙﹏⊙)，有IE10以上的娃可以帮我试试
+        color: #DFE0E1;        
+}
+#code::-webkit-input-placeholder{
+        color: #DFE0E1;
+}
+#code::-moz-placeholder{  //不知道为何火狐的placeholder的颜色是粉红色，怎么改都不行，希望有大牛路过帮忙指点
+        color: #DFE0E1;        
+}
+#code:-ms-input-placeholder{  //由于我的IE刚好是IE9，支持不了placeholder，所以也测试不了(⊙﹏⊙)，有IE10以上的娃可以帮我试试
+        color: #DFE0E1;        
+}
+
+.btn {
+	position: absolute;
+	display: block;
+	float: left;
+	right: 0;
+	top: 5.7rem;
+	width: 6.8rem;
+	height: 2.5rem;
+	background: #32AAFF;
+	border: none;
+	outline: none;
+	color: #fff;
+	margin: 1.25rem 1rem 0;
+	border-radius: 2.5rem;
+	font-size: 1.1rem;
+}
+
+.sex {
+	width: 80%;
+	margin-left: 10%;
+	/*background: red;*/
+	float: left;
+}
+
+.sex span {
+	width: 25%;
+	float: left;
+	margin-left: 21%;
+}
+
+.sex span img {
+	width: 4rem;
+	height: 4rem;
+}
+
+.sex span p {
+	width: 3.5rem;
+	/*background: gray;*/
+	text-align: center;
+}
+
+.regist {
+	width: 50%;
+	margin: auto;
+}
+
+.regist button {
+	margin-top: 5rem;
+	font-size: 2rem;
+	/*letter-spacing: 1rem;*/
+	text-align: center;
+	color: #fff;
+	border: none;
+	outline: none;
+	width: 100%;
+	height: 4rem;
+	font-size: 1.8rem;
+	font-family:PingFang SC;
+    font-weight:400;
+	background: #32AAFF;
+	border-radius: 2.5rem;
+	
+}

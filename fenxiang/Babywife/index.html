@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	    <meta name="viewport" content="width=device-width,maximum-scale=1.0,user-scalable=no">
+	    <meta name="Description" content=""/>
+	    <meta name="keywords" content=""/>
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/homeDetail.css"/>
+		<script src="js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/flexible.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="homeDetail">
+			<div class="audio">
+				<video src="" controls="controls">
+				your browser does not support the video tag
+				</video>
+			</div>
+			<div class="introduction">
+				<div class="title">
+					<img class="home_img" src=""/>
+					<div class="right">
+						<div class="left">
+							<p class="name">--</p>
+							<p class="time">--</p>
+						</div>
+						<!--<div class="attention">
+							关注
+						</div>-->
+					</div>
+				</div>
+				<div class="msg">
+					--
+				</div>
+				<div class="label">
+					<p class="one"><span>#</span>好兔羽毛球俱乐部</p>
+				</div>
+				<div class="browse">
+					浏览<span>--</span>万
+				</div>
+			</div>
+			
+			<div class="thumbsup">
+				<div class="left">
+					<img src="images/zan.png"/>
+					<p>--</p>
+				</div>
+				<div class="right">
+					<div class="list">
+						<!--<div class="list_one">
+							<img src="images/wx.png"/>
+						</div>-->
+					</div>
+					<div class="more">
+						<span>更多</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="company">
+				<div class="left">
+					<img src=""/>
+				</div>
+				<div class="right">
+					<div class="name">--</div>
+					<div class="msg">
+						<img src="images/xing.png" style="width: 15px;height: 15px;float: left;margin-left: 2px;"/>
+						<img src="images/xing.png" style="width: 15px;height: 15px;float: left;margin-left: 2px;"/>
+						<img src="images/xing.png" style="width: 15px;height: 15px;float: left;margin-left: 2px;"/>
+						<img src="images/xing.png" style="width: 15px;height: 15px;float: left;margin-left: 2px;"/>
+						<img src="images/xing.png" style="width: 15px;height: 15px;float: left;margin-left: 2px;"/>
+						<!--<div class="star-rating">
+							<div class="star-rating-top" style="width:50%">
+					            <span></span>
+					            <span></span>
+					            <span></span>
+					            <span></span>
+					            <span></span>
+					        </div>
+					        <div class="star-rating-bottom">
+					            <span></span>
+					            <span></span>
+					            <span></span>
+					            <span></span>
+					            <span></span>
+					        </div>
+						</div>-->
+						<span class="price" style="display: inline-block;vertical-align: middle;">￥<span>--</span>元/位</span>
+						<!--<div class="attention">
+							<img src="images/wx.png"/>
+							6.3万
+						</div>-->
+					</div>
+					<div class="address">杨浦区 五角场 万达5层</div>
+				</div>
+			</div>
+			
+			<div class="comment">
+				<div class="title">
+					评论<span class="num">(100)</span>
+				</div>
+				
+				<!--<div class="mymsg">
+					<img src="images/wx.png"/>
+					<input type="text" name="" id="" value="" placeholder="说点儿什么吧"/>
+				</div>
+				-->
+				<div class="list">
+					<div class="list_one">
+						<div class="img">
+							<img class="client_img" src="images/wx.png"/>
+						</div>
+						<div class="right">
+							<p class="name">四月铃兰</p>
+							<p class="time">8月26日 10:27</p>
+							<p class="msg">啊哈哈啊哈哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈哈哈哈哈</p>
+							<img class="praise" src="images/wx.png"/>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+					<div class="list_one">
+						<div class="img">
+							<img class="client_img" src="images/wx.png"/>
+						</div>
+						<div class="right">
+							<p class="name">四月铃兰</p>
+							<p class="time">8月26日 10:27</p>
+							<p class="msg">啊哈哈啊哈哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈哈啊哈哈哈哈哈哈哈哈</p>
+							<img class="praise" src="images/wx.png"/>
+						</div>
+						<div class="clearfix"> </div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="operating">
+				<div class="input">
+					<input type="text" name="" id="" value="" />
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//			var videoId = 11;
+//			var sorttype = 1;
+			var videoId = getQueryString("videoId");
+			var sorttype = getQueryString("sorttype");
+			bussydetail();
+			function bussydetail(){
+				$.ajax({
+					type:"get",
+					url:httpUrl + "/api/v1.0/topic/video/videodetail/" + videoId ,
+					data:{
+//						user_token:token,
+						videoId:videoId,
+					},
+					async:true,
+					success:function (data){
+						console.log(data)
+						if(data.code == 200){
+							$(".audio video").attr('src',data.data.url);
+							$(".introduction .title .name").text(data.data.userNickName);
+							$(".introduction .title .home_img").attr('src',data.data.userImageUrl);
+							var time = timestampToTime(data.data.createTime);
+							console.log(timestampToTime(data.data.createTime));
+							$(".introduction .title .time").text(time);
+							$(".introduction .msg").text(data.data.content);
+							var topImgHtml = '';
+							for(var i = 0;i < data.data.topicImageDTOs.length;i++){
+								topImgHtml += '<p class="one"><span>#</span>'+ data.data.topicImageDTOs[i].content +'</p>';
+							}
+							$(".introduction .label").html(topImgHtml);
+							$(".introduction .browse span").html(data.data.seeCount);
+							
+							
+							if(data.data.companyDetailDTO != null){
+								console.log('ppppp')
+								$('.company').css('display','block');
+								$('.company .left img').attr('src',data.data.companyDetailDTO.group_logo);
+								$('.company .right .name').text(data.data.companyDetailDTO.group_name);
+								$('.company .right .address').text(data.data.companyDetailDTO.province + data.data.companyDetailDTO.city + data.data.companyDetailDTO.area + data.data.companyDetailDTO.activity_venue_address);
+								$('.company .right .price span').text(data.data.companyDetailDTO.average_price);
+								
+							}else{
+								$('.company').css('display','none');
+							}
+							
+						}
+						
+					}
+				});
+			}
+			listComment(1,50);
+			function listComment(page,size){
+				$.ajax({
+					type:"get",
+					url:httpUrl + "/api/v1.0/topic/video/comment/listComment",
+					data:{
+//						user_token:token,
+						video_id:videoId,
+						sorttype:sorttype,
+						page:page,
+						size:size,
+					},
+					async:true,
+					success:function (data){
+						console.log(data)
+						if(data.code == 200){
+							var listHtml = '';
+							for(var i=0;i < data.data.length;i++){
+								
+								listHtml += '<div class="list_one">'+
+									'	<div class="img">'+
+									'		<img class="client_img" src="'+ data.data[i].userImageUrl +'"/>'+
+									'	</div>'+
+									'	<div class="right">'+
+									'		<p class="name">'+ data.data[i].userNickName +'</p>'+
+									'		<p class="time">'+ data.data[i].createTime +'</p>'+
+									'		<p class="msg">'+ data.data[i].content +'</p>'+
+//									'		<img class="praise" src="images/wx.png"/>'+
+									'	</div>'+
+									'	<div class="clearfix"> </div>'+
+									'</div>'
+							}
+							$(".comment .num").text('('+ data.data.length +')')
+							$(".comment .list").html(listHtml);
+						}
+						
+					}
+				});
+			}
+//			点赞
+			listLikeOrStore(1,50);
+			function listLikeOrStore(page,size){
+				$.ajax({
+					type:"get",
+					url:httpUrl + "/api/v1.0/topic/video/likeorstore/listLikeOrStore",
+					data:{
+//						user_token:token,
+						video_id:videoId,
+						type:1,
+						page:page,
+						size:size,
+					},
+					async:true,
+					success:function (data){
+						console.log(data)
+						if(data.code == 200){
+							var listHtml = '';
+							for(var i=0;i < data.data.length;i++){
+								
+								listHtml += '<div class="list_one">'+
+									'	<img src="'+ data.data[i].userImageUrl +'"/>'+
+									'</div>'
+							}
+							$(".thumbsup .left p").text('('+ data.data.length +')')
+							$(".thumbsup .right .list").html(listHtml);
+						}
+						
+					}
+				});
+			}
+			$(".thumbsup .more").click(function(){
+				window.location = "list.html?videoId=" + videoId;
+			})
+			$(".company").click(function(){
+				window.location = "Homepage.html?groupId=" + videoId + "&sorttype=" + sorttype;
+			})
+			
+			function timestampToTime(timestamp) {
+        var date = new Date(timestamp);//时间戳为10位需*1000，时间戳为13位的话不需乘1000
+        Y = date.getFullYear() + '-';
+        M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1);
+        D = (date.getDate() < 10 ? '0'+ date.getDate() : date.getDate()) + '';
+        h = (date.getHours() < 10 ? '0'+ date.getHours() : date.getHours()) + ':';
+        m = (date.getMinutes() < 10 ? '0'+ date.getMinutes() : date.getMinutes());
+        return M+'月'+D+ '日 '+h+m;
+    }
+//  timestampToTime(1570975140000);
+    console.log(timestampToTime(1571050489000));//2014-06-18 10:33:24
+	</script>
+</html>

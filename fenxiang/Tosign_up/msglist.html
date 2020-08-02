@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>报名列表</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/msglist.css"/>
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="list">
+			<div class="lit">
+				<!--<div class="list_group">
+					群主
+				</div>-->
+				<div class="list_cen">
+					<!--<div class="list_did">
+						<div class="list_cen_left"><img src="img/Avatar sample 271.png"/></div>
+						<div class="list_cen_center">王先生</div>
+						<div class="list_cen_right"><img src="img/nan.png"/></div>
+					</div>-->
+				</div>
+			</div>
+			
+			<div class="admin_zong">
+				<!--<div class="list_admin">
+					管理员
+				</div>-->
+				<div class="admin">
+					<!--<div class="admin_cen">
+						<div class="admin_cen_left"><img src="img/Avatar sample 271.png"/></div>
+						<div class="admin_cen_center">王女士</div>
+						<div class="admin_cen_right"><img src="img/nv.png"/></div>
+					</div>-->
+				</div>
+			</div>
+			<div class="bom_zong">
+				<!--<div class="list_bom">
+					<div class="baoming">
+						<span class="list_gro">报名成员</span>
+						<div class="gro_oup">
+							<span class="gro_num">--</span>/<span class="gro_bom">--</span>
+						</div>
+					</div>
+					
+				</div>-->
+				<div class="bom">
+					<!--<div class="bom_cen">
+						<div class="bom_cen_left"><img src="img/Avatar sample 271.png"/></div>
+						<div class="bom_cen_center">王女士</div>
+						<div class="bom_cen_right"><img src="img/nv.png"/></div>
+					</div>>-->
+				</div>
+			</div>
+		</div>
+		
+		
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+//			查看群成员
+			var token = getQueryString("token"); //这这是从上一页截取的  
+			var activity_id = getQueryString("activity_id"); //这是从上一页截取的  
+			
+//			查看群成员
+			getSignupIconPage();
+//			查看活动报名成员
+			
+			
+			function getSignupIconPage(){
+				$.ajax({
+					type: "post",
+					url: httpUrl + "/api/v1.0/activity/getSignupIconPage",
+					async: true,
+					data: {
+						activity_id: activity_id,
+						user_token: token,
+					},
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.code == 200){
+//							先循环群主和管理员
+							var qunzhuHtml = '';
+							var guanliHtml = '';
+							var baomingHtml = '';
+							
+							$.each(data.data, function(i,item) {
+								if(item.indentity == 1){
+									qunzhuHtml += '<div class="list_did">'+
+										'			<div class="list_cen_left"><img src="'+ item.url +'"/></div>'+
+										'			<div class="list_cen_center">'+ item.nick_name +'</div>'+
+										'			<div class="list_cen_right"><img src="img/'+ (item.sex == 1 ? 'nan' : 'nv') +'.png"/></div>'+
+										'		</div>'	;	
+								}else if(item.indentity == 2){
+									guanliHtml += '<div class="admin_cen">'+
+										'			<div class="admin_cen_left"><img src="'+ item.url +'"/></div>'+
+										'			<div class="admin_cen_center">'+ item.nick_name +'</div>'+
+										'			<div class="admin_cen_right"><img src="img/'+ (item.sex == 1 ? 'nan' : 'nv') +'.png"/></div>'+
+										'		</div>';
+									
+								}else{
+									baomingHtml += '<div class="bom_cen">'+
+											'		<div class="bom_cen_left"><img src="'+ item.url +'"/></div>'+
+											'		<div class="bom_cen_center">'+ item.nick_name +'</div>'+
+											'		<div class="bom_cen_right"><img src="img/'+ (item.sex == 1 ? 'nan' : 'nv') +'.png"/></div>'+
+											'	</div>';
+									
+								}
+							});
+							
+							$(".list_cen").html(qunzhuHtml)
+							$(".admin").html(guanliHtml)
+							$(".bom").html(baomingHtml)
+							
+							
+							$(".gro_num").text(data.data.length-1)
+							$(".gro_bom").text(data.data.length-1)
+							
+							
+							if(guanliHtml == ''){
+								$(".admin_zong").css('display','none')
+							}else{
+								$(".admin_zong .admin").html(guanliHtml);
+							}
+							
+			
+							$(".list_gro").text('报名成员')
+						
+							
+							
+						}else {
+							alert(data.msg)
+						}
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

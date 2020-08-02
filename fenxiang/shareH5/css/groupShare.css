@@ -1,0 +1,103 @@
+
+
+.group {
+	width: 100%;
+	height: 100vh;
+	background: #F4F5F5;
+}
+.group .tit {
+	width: 100%;
+	height: 16rem;
+	background: #fff;
+	margin-bottom: 0.5rem ;
+}
+
+.group .tit .group_img{
+	width: 7.5rem;
+	height: 7.5rem;
+	background: antiquewhite;
+	margin:auto;
+	padding: 1rem;
+}
+.group .tit .group_img img{
+	width: 100%;
+	height: 100%;
+}
+.group .tit .group_font{
+	width: 100%;
+	height: 2.5rem;
+	display: block;
+	font-size:2rem;
+	text-align: center;
+	line-height: 2rem;
+	font-weight:bold;
+	color: #2B2B2B;
+}
+.group .tit .group_but {
+	width: 100%;
+	height: 3rem;
+	display: block;
+	text-align: center;
+	margin:auto;
+
+
+}
+.group .tit .group_but button {
+	border-radius:3rem;
+	width: 14rem;
+	height: 3rem;
+	font-size:1.6rem;
+	font-family:Ping Hei;
+	font-weight:600;
+	color:rgba(255,255,255,1);
+	background:rgba(50,170,255,1);
+	border: 1px solid transparent;
+	outline: none;
+}
+.group_members {
+	width: 100%;
+	height: 6.4rem;
+	background: #FFFFFF;
+}
+.group_members .members_left {
+	width: 12%;
+	height: 100%;
+	float: left;
+}
+.group_members .members_left img {
+	width: 2.4rem;
+	height: 2.4rem;
+	margin:2rem auto;
+}
+.group_members .members_cen {
+	width: 76%;
+	height: 100%;
+	float: left;
+	overflow: hidden;
+}
+.group_members .members_cen div{
+	width: 4rem;
+	height: 4rem;
+	/*background: #810213;*/
+	float: left;
+	margin: 1.2rem auto;
+	border-radius: 50% ;
+	overflow: hidden;
+}
+.group_members .members_cen div img{
+	width: 3rem;
+	height: 3rem;
+	margin: 0.5rem;
+	border-radius: 50% ;
+	white-space: nowrap;
+}
+.group_members .members_right {
+	width: 12%;
+	height: 100%;
+	float: right;
+}
+.group_members .members_right img{
+	width: 2rem;
+	height: 2rem;
+	margin:2rem auto;
+}

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>比分纪录</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/heroDetail.css" />
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="hero">
+			<div class="title">
+				<div class="title_center">
+					<div class="title_img">
+						<img src='img/touxiang.png'></img>
+					</div>
+					<div class="title_huo">
+						<img src="img/lanhuo.png" />
+					</div>
+					<div class="title_num">
+						<img src='img/kuang.png'></img>
+						<span>--</span>
+					</div>
+				</div>
+				<div class="title_name">
+					--
+				</div>
+			</div>
+
+			<div class='content'>
+				<div class="content_one">
+					<div class='content_bom'>
+						<div class='left_cen'>
+							<div class='left_cen_lef'>
+								<div class='left_cen_img'>
+									<img src='img/touxiang.png'></img>
+								</div>
+								<div class='left_cen_name'>
+									<p>啦啦啦啦</p>
+									<img src="img/nan.png"/>
+								</div>
+							</div>
+							<div class='left_cen_rig'>
+								<div class='left_cen_img'>
+									<img src='img/touxiang.png'></img>
+								</div>
+								<div class='left_cen_name'>
+									<p>啦啦啦啦</p>
+									<img src="img/nan.png"/>
+								</div>
+							</div>
+						</div>
+						<div class='center_cen'>
+							<div class='time_two'>
+								<span>2</span>
+								<span>：</span>
+								<span>0</span>
+							</div>
+							<div class='time_three'>--</div>
+						</div>
+						<div class='right_cen'>
+
+							<div class='right_cen_lef'>
+								<div class='right_cen_img'>
+									<img src='img/touxiang.png'></img>
+								</div>
+								<div class='right_cen_name'>
+									<p>啦啦啦啦</p>
+									<img src="img/nan.png"/>
+								</div>
+							</div>
+							<div class='right_cen_rig'>
+								<div class='right_cen_img'>
+									<img src='img/touxiang.png'></img>
+								</div>
+								<div class='right_cen_name'>
+									<p>啦啦啦啦</p>
+									<img src="img/nv.png"/>
+								</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+				
+
+			</div>
+			
+
+		</div>
+		
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var token = getQueryString("token"); //这这是从上一页截取的  
+			var activity_id = getQueryString("activity_id"); //这是从上一页截取的  
+			var team_id = getQueryString("team_id"); //这是从上一页截取的  
+			
+//			var token = "6d70fb6591f54373ad45c56951931f4b";
+//			var activity_id = 2;
+//			var team_id = "13";
+			
+			
+			
+			viewActivityMatchDetail();
+			function viewActivityMatchDetail(){
+				$.ajax({
+					type:"post",
+					url:httpUrl + "/api/v1.0/match/viewScoreEntryByTeamId",
+					data:{
+						user_token:token,
+						activity_id:activity_id,
+						team_id:team_id
+					},
+					async:true,
+					success:function (data){
+						console.log(data)
+						if(data.code == 200){
+							$(".title_img img").attr('src',data.data.basicInfo.groupLogo)
+							$(".title_name").text(data.data.basicInfo.groupName)
+							$(".title_num span").text(data.data.basicInfo.battleNumber)
+							
+							
+							var contentList = data.data.matchList;
+							var contentListHtml = '';
+					
+							if(contentList != '' || contentList.length != 0){
+								$.each(contentList, function(i,item) {
+									contentListHtml += '<div class="content_one">'+
+										'					<div class="content_bom">'+
+										'						<div class="left_cen">'+
+										'							<div class="left_cen_lef">'+
+										'								<div class="left_cen_img">'+
+										'									<img src="'+ item.team_a_member_a_logo +'"></img>'+
+										'								</div>'+
+										'								<div class="left_cen_name">'+
+										'									<p>'+ item.team_a_member_a_nickname +'</p>'+
+										'									<img src="img/'+ (contentList[i].team_a_member_a_sex == 1 ? 'nan' : 'nv') +'.png"/>'+
+										'								</div>'+
+										'							</div>'+
+										'							<div class="left_cen_rig">'+
+										'								<div class="left_cen_img">'+
+										'									<img src="'+ item.team_a_member_b_logo +'"></img>'+
+										'								</div>'+
+										'								<div class="left_cen_name">'+
+										'									<p>'+ item.team_a_member_b_nickname +'</p>'+
+										'									<img src="img/'+ (contentList[i].team_a_member_b_sex == 1 ? 'nan' : 'nv') +'.png"/>'+
+										'								</div>'+
+										'							</div>'+
+										'						</div>'+
+										'						<div class="center_cen">'+
+										'							<div class="time_two">'+
+										'								<span>'+ item.team_a_score +'</span>'+
+										'								<span>:</span>'+
+										'								<span>'+ item.team_b_score +'</span>'+
+										'							</div>'+
+										
+										'						</div>'+
+										'						<div class="right_cen">'+
+										'							<div class="right_cen_lef">'+
+										'								<div class="right_cen_img">'+
+										'									<img src="'+ item.team_b_member_a_logo +'"></img>'+
+										'								</div>'+
+										'								<div class="right_cen_name">'+
+										'									<p>'+ item.team_b_member_a_nickname +'</p>'+
+										'									<img src="img/'+ (contentList[i].team_b_member_a_sex == 1 ? 'nan' : 'nv') +'.png"/>'+
+										'								</div>'+
+										'							</div>'+
+										'							<div class="right_cen_rig">'+
+										'								<div class="right_cen_img">'+
+										'									<img src="'+ item.team_b_member_b_logo +'"></img>'+
+										'								</div>'+
+										'								<div class="right_cen_name">'+
+										'									<p>'+ item.team_b_member_b_nickname +'</p>'+
+										'									<img src="img/'+ (contentList[i].team_b_member_b_sex == 1 ? 'nan' : 'nv') +'.png"/>'+
+										'								</div>'+
+										'							</div>'+
+										'						</div>'+											
+										'					</div>	'+
+										'				</div>';
+								});
+								$(".content").html(contentListHtml)
+								
+							}else{
+								$(".content").html('<p style="text-align: center;line-height: 50px;">暂无比赛数据</p>')
+							}
+						}				
+						
+					}
+				});
+			}
+			
+		</script>
+		
+	</body>
+
+</html>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HTMsgTFView" customModule="hotu" customModuleProvider="target">
+            <connections>
+                <outlet property="emojiBtn" destination="P06-66-96h" id="p8m-Q4-lzi"/>
+                <outlet property="emojiView" destination="AAq-m0-cb2" id="4jX-w7-1HY"/>
+                <outlet property="msgTV" destination="NAC-6N-gNA" id="gKk-bN-78j"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clipsSubviews="YES" contentMode="scaleToFill" id="WP5-wC-hgd">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="313"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Blc-5a-HD6">
+                    <rect key="frame" x="0.0" y="1" width="414" height="50"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NAC-6N-gNA" customClass="HTAttTextView" customModule="hotu" customModuleProvider="target">
+                            <rect key="frame" x="20" y="10" width="299" height="30"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="支持一下吧~"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="fontSize_">
+                                    <real key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="placeholderFontSize_">
+                                    <real key="value" value="15"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P06-66-96h">
+                            <rect key="frame" x="369" y="0.0" width="40" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="jea-bA-fLM"/>
+                            </constraints>
+                            <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="2" maxX="0.0" maxY="0.0"/>
+                            <state key="normal" image="icon_emoji">
+                                <color key="titleColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </state>
+                            <state key="selected" image="icon_emoji"/>
+                            <connections>
+                                <action selector="emojiAction:" destination="-1" eventType="touchUpInside" id="tgf-gb-NLV"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ngP-6x-Ag3">
+                            <rect key="frame" x="329" y="0.0" width="40" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="40" id="EeX-9E-xjw"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                            <color key="tintColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            <state key="normal" title="@">
+                                <color key="titleColor" red="0.51372549020000002" green="0.51372549020000002" blue="0.51372549020000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="atAction:" destination="-1" eventType="touchUpInside" id="d5O-T3-lPu"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="P06-66-96h" secondAttribute="trailing" constant="5" id="5ge-L5-AVT"/>
+                        <constraint firstAttribute="bottom" secondItem="NAC-6N-gNA" secondAttribute="bottom" constant="10" id="61Z-3G-1Ar"/>
+                        <constraint firstAttribute="bottom" secondItem="ngP-6x-Ag3" secondAttribute="bottom" id="7C5-2W-qYo"/>
+                        <constraint firstItem="P06-66-96h" firstAttribute="top" secondItem="Blc-5a-HD6" secondAttribute="top" id="LOh-c9-5f8"/>
+                        <constraint firstAttribute="bottom" secondItem="P06-66-96h" secondAttribute="bottom" id="QSg-cr-kne"/>
+                        <constraint firstItem="NAC-6N-gNA" firstAttribute="top" secondItem="Blc-5a-HD6" secondAttribute="top" constant="10" id="UVs-jf-7uJ"/>
+                        <constraint firstItem="P06-66-96h" firstAttribute="leading" secondItem="ngP-6x-Ag3" secondAttribute="trailing" id="UhA-8U-2Sw"/>
+                        <constraint firstItem="NAC-6N-gNA" firstAttribute="leading" secondItem="Blc-5a-HD6" secondAttribute="leading" constant="20" id="mjL-4S-cwv"/>
+                        <constraint firstItem="ngP-6x-Ag3" firstAttribute="leading" secondItem="NAC-6N-gNA" secondAttribute="trailing" constant="10" id="qpS-7A-g0K"/>
+                        <constraint firstItem="ngP-6x-Ag3" firstAttribute="top" secondItem="Blc-5a-HD6" secondAttribute="top" id="rBF-sD-85S"/>
+                        <constraint firstAttribute="height" constant="50" id="yJ3-iw-DBj"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AAq-m0-cb2" customClass="HTEmojiView" customModule="hotu" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="51" width="414" height="220"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="220" id="vhp-gA-7a0"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sh4-gy-amA">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="1"/>
+                    <color key="backgroundColor" red="0.80784313730000001" green="0.80784313730000001" blue="0.80784313730000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="7sr-o0-1i4"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Blc-5a-HD6" firstAttribute="top" secondItem="Sh4-gy-amA" secondAttribute="bottom" id="DP1-Y2-3he"/>
+                <constraint firstItem="AAq-m0-cb2" firstAttribute="top" secondItem="Blc-5a-HD6" secondAttribute="bottom" id="EPD-xw-Jfw"/>
+                <constraint firstItem="AAq-m0-cb2" firstAttribute="trailing" secondItem="WP5-wC-hgd" secondAttribute="trailing" id="L05-N0-jkq"/>
+                <constraint firstItem="Sh4-gy-amA" firstAttribute="leading" secondItem="WP5-wC-hgd" secondAttribute="leading" id="YG2-Lf-Clt"/>
+                <constraint firstItem="Blc-5a-HD6" firstAttribute="trailing" secondItem="WP5-wC-hgd" secondAttribute="trailing" id="jPt-Ma-TMp"/>
+                <constraint firstAttribute="trailing" secondItem="Sh4-gy-amA" secondAttribute="trailing" id="oEQ-pt-Zxh"/>
+                <constraint firstItem="AAq-m0-cb2" firstAttribute="leading" secondItem="WP5-wC-hgd" secondAttribute="leading" id="pj0-j7-mif"/>
+                <constraint firstItem="Blc-5a-HD6" firstAttribute="leading" secondItem="WP5-wC-hgd" secondAttribute="leading" id="scz-HK-jcA"/>
+                <constraint firstItem="Sh4-gy-amA" firstAttribute="top" secondItem="WP5-wC-hgd" secondAttribute="top" id="uga-dx-At0"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="212.61160714285714"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_emoji" width="21" height="21"/>
+    </resources>
+</document>

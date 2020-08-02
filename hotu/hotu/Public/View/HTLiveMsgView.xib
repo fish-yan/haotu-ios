@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HTLiveMsgView" customModule="好兔" customModuleProvider="target">
+            <connections>
+                <outlet property="msgTV" destination="sJS-xN-5sM" id="h8y-cQ-y6v"/>
+                <outlet property="tableView" destination="XMw-8c-20V" id="ZhD-6s-wXb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="470"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="欢迎来到本次赛事/活动现场，请上传符合平台规定的图片禁黄赌毒类照片和视频，请大家积极发言交流哦" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kT-kZ-yYE">
+                    <rect key="frame" x="15" y="10" width="384" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="Sx1-IX-8Ye"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.5490196078431373" green="0.90588235294117647" blue="0.99607843137254903" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sJS-xN-5sM" customClass="HTMsgTFView" customModule="好兔" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="200" width="414" height="270"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="270" id="bZO-M1-3Id"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="XMw-8c-20V">
+                    <rect key="frame" x="0.0" y="50" width="414" height="150"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="150" id="hNS-aP-hrA"/>
+                    </constraints>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="8kT-kZ-yYE" secondAttribute="trailing" constant="15" id="067-me-RF0"/>
+                <constraint firstItem="XMw-8c-20V" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="RIx-iA-kMx"/>
+                <constraint firstItem="8kT-kZ-yYE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="Rcb-eL-AOa"/>
+                <constraint firstItem="sJS-xN-5sM" firstAttribute="top" secondItem="XMw-8c-20V" secondAttribute="bottom" id="U3R-29-f55"/>
+                <constraint firstAttribute="trailing" secondItem="XMw-8c-20V" secondAttribute="trailing" id="ioz-uc-Ue4"/>
+                <constraint firstAttribute="trailing" secondItem="sJS-xN-5sM" secondAttribute="trailing" id="kNb-KW-9mO"/>
+                <constraint firstItem="XMw-8c-20V" firstAttribute="top" secondItem="8kT-kZ-yYE" secondAttribute="bottom" constant="5" id="qP9-oO-kdF"/>
+                <constraint firstItem="8kT-kZ-yYE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="rsF-h1-4EG"/>
+                <constraint firstItem="sJS-xN-5sM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="y2y-hf-bHT"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="137.68115942028987" y="124.55357142857142"/>
+        </view>
+    </objects>
+</document>

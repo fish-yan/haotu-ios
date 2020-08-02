@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>pk列表详情</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<!--pages/events/events.wxml-->
+		<div class='page'>
+			<div class="title">
+				<div class="title_center">
+					<div class="title_img">
+						<img src='img/touxiang.png'></img>
+					</div>
+					<div class="title_huo">
+						<img src="img/lanhuo.png" style="width: 100%;height: 100%;" />
+					</div>
+					<div class="title_num">
+						<img src='img/kuang.png'></img>
+						<span>500</span>
+					</div>
+				</div>
+				<div class="title_name">
+					--
+				</div>
+			</div>
+
+			<div class="tab">
+				<div class="tab_title">
+					<div class="tab_lab" data-id="1">
+						<p>活动信息</p>
+						<p class="border active"></p>
+					</div>
+					<div class="tab_lab" data-id="2">
+						<p>装备信息</p>
+						<p class="border"></p>
+					</div>
+					<div class="tab_lab" data-id="3">
+						<p>比赛规则</p>
+						<p class="border"></p>
+					</div>
+				</div>
+				<div class="tab_main">
+					<div class="tab_left">
+						<div class='active_msg'>
+							<div class='msg_top'>活动名称</div>
+							<div class='msg_bom activity_name'>--</div>
+						</div>
+						<div class='active_msg'>
+							<div class='msg_top'>活动时间</div>
+							<div class='msg_bom msg_bom_time'>--年--月--日 --:-- --:--</div>
+						</div>
+						<div class='active_msg'>
+							<div class='msg_top'>场地</div>
+							<div class='msg_bom venueName'>--</div>
+						</div>
+						<div class='active_msg'>
+							<div class='msg_top'>地址</div>
+							<div class='msg_bom'><span class="city">--</span><span class="area">--</span><span class="address">--</span></div>
+						</div>
+						<div class='active_msg'>
+							<div class='msg_top'>战斗力</div>
+							<div class='msg_bom'>
+								<span class="zhan">--</span>
+								<span>—</span>
+								<span class="dou">--</span></div>
+						</div>
+						<div class='active_msg'>
+							<div class='msg_top'>发起人</div>
+							<div class='msg_bom'><span class="organizerName" style='margin-right:1.5rem;'>--</span><sapn class="organizerPhone">--</sapn></div>
+						</div>
+					</div>
+					<div class="tab_right">
+						<div class='equipment_top'>品牌名称</div>
+					    <div class='equipment_bom'>--</div>
+					    <div class='equipment_img'>
+					      <img src='img/touxiang.png'></img>
+					    </div>
+					</div>
+
+					<div class="tab_center">
+						<div class='game_rules'>
+					      --
+					    </div>
+					</div>
+				</div>
+			</div>
+
+			<div class='against'>
+				<div class='against_left'>他们迎战了：</div>
+				<div class='against_center'>
+					<!--<div class='against_img'>
+						<img src='img/touxiang.png'></img>
+					</div>-->
+				</div>
+				<div class='against_right'>
+					<img src='img/rig.png'></img>
+				</div>
+
+			</div>
+
+		</div>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var token = getQueryString("token"); //这这是从安卓分享过来的链接截取  
+			var groupPkId = getQueryString("groupPkId"); //这这是从安卓分享过来的链接截取  
+//			目前用下面的假数据
+//			var token = "01f7fca2289e41ddb6c2a235862288fc";
+//			var groupPkId = 3;
+			
+			getPkDetail();
+			function getPkDetail(){
+				$.ajax({
+					type:"post",
+					url:httpUrl + "/api/v1.0/pkinfo/getPkDetail",
+					data:{
+						user_token:token,
+						group_pk_id:groupPkId,
+					},
+					async:true,
+					success:function (data){
+						console.log(data)
+						$(".title_img img").attr('src', data.data.groupALogo);
+
+						$(".title_name").text(data.data.group_a_name)
+						$(".msg_bom_time").text(data.data.start_date)
+						$(".activity_name").text(data.data.group_pk_name)
+						$(".venueName").text(data.data.venueName)
+						$(".city").text(data.data.city)
+						$(".area").text(data.data.area)
+						$(".address").text(data.data.address)
+						$(".zhan").text(data.data.min_battle)
+						$(".dou").text(data.data.max_battle)
+						
+						
+						$(".organizerName").text(data.data.organizerName)
+						$(".organizerPhone").text(data.data.organizerPhone)
+						$(".equipment_bom").text(data.data.brand_name)
+						$(".equipment_img img").attr('src', data.data.brand_ball_url);
+						
+						$(".game_rules").text(data.data.remark)
+						
+						var against_center = ''; //首先是一个空字符串
+
+						for(var i = 0; i < data.data.accepts.length; i++) {
+								against_center += '<div class="against_img">'+'<img src="' + data.data.accepts[i].groupLogo + '" />'+'</div>'
+							
+						}
+						$(".against_center").html(against_center);
+						
+					}
+				});
+			}
+			$(".against").click(function(){
+				window.location = "list.html?token=" + token + "&groupPkId=" + groupPkId;
+			})
+			//	    tab切换
+			$(".tab .tab_title .tab_lab").click(function() {
+				$(this).children('.border').addClass('active');
+				$(this).siblings().children('.border').removeClass('active');
+
+				var data_id = $(this).attr("data-id");
+				if(data_id == 1) {
+					$(".tab_left").css('display', 'block');
+					$(".tab_right").css('display', 'none');
+					$(".tab_center").css('display', 'none');
+
+				} else if(data_id == 2) {
+					$(".tab_left").css('display', 'none');
+					$(".tab_right").css('display', 'block');
+					$(".tab_center").css('display', 'none');
+
+				} else {
+					$(".tab_left").css('display', 'none');
+					$(".tab_right").css('display', 'none');
+					$(".tab_center").css('display', 'block');
+
+				}
+			})
+		</script>
+	</body>
+
+</html>

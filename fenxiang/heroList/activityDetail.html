@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>群PK比赛成绩单</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/activityDetail.css"/>
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<div class="activityDetail">
+			<div class='list'>
+				<div class='list_bom'>
+					<div class='left'>
+						<div class='left_img'>
+							<img src='img/touxiang.png'></img>
+						</div>
+						<div class='left_name'>--</div>
+					</div>
+					<div class='center'>
+						
+						<div class='name_two'>
+							<span class="group_a_score">--</span>
+							<span>:</span>
+							<span class="group_b_score">--</span>
+						</div>
+						<div class='name_one'>
+							<span class="time">--</span>
+							<span class="state">--</span>
+						</div>
+						<!--<div class='name_three'>男女单打第二轮</div>-->
+					</div>
+					<div class='right'>
+						<div class='right_img'>
+							<img src='img/touxiang.png'></img>
+						</div>
+						<div class='right_name'>--</div>
+					</div>
+
+				</div>
+
+			</div>
+			<div class='content'>
+				<div class="content_one">
+					<div class='content_bom'>
+						<div class='left_cen'>
+							<div class='left_cen_lef'>
+								<div class='left_cen_img'>
+									<img src='img/touxiang.png'></img>
+								</div>
+								<div class='left_cen_name'>
+									<p>啦啦啦啦</p>
+									<img src="img/nv.png"/>
+								</div>
+							</div>
+							<div class='left_cen_rig'>
+								<div class='left_cen_img'>
+									<img src='img/touxiang.png'></img>
+								</div>
+								<div class='left_cen_name'>
+									<p>啦啦啦啦</p>
+									<img src="img/nv.png"/>
+								</div>
+							</div>
+						</div>
+						<div class='center_cen'>
+							<div class='time_two'>
+								<span>2</span>
+								<span>：</span>
+								<span>0</span>
+							</div>
+							<div class='time_three'>好兔兔</div>
+						</div>
+						<div class='right_cen'>
+	
+							<div class='right_cen_lef'>
+								<div class='right_cen_img'>
+									<img src='img/touxiang.png'></img>
+								</div>
+								<div class='right_cen_name'>
+									<p>啦啦啦啦</p>
+									<img src="img/nv.png"/>
+								</div>
+							</div>
+							<div class='right_cen_rig'>
+								<div class='right_cen_img'>
+									<img src='img/touxiang.png'></img>
+								</div>
+								<div class='right_cen_name'>
+									<p>啦啦啦啦</p>
+									<img src="img/nv.png"/>
+								</div>
+							</div>
+						</div>
+	
+					</div>
+	
+				</div>
+			
+
+			</div>
+
+		</div>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var token = getQueryString("token"); //这这是从安卓分享过来的链接截取  
+			var activityId = getQueryString("activity_id"); //这这是从安卓分享过来的链接截取  
+//			目前用下面的假数据
+//			var token = "01f7fca2289e41ddb6c2a235862288fc";
+//			var activityId = 292;
+			
+			viewPkActivityMatch();
+			function viewPkActivityMatch(){
+				$.ajax({
+					type:"post",
+					url:httpUrl + "/api/v1.0/pkinfo/viewPkActivityMatch",
+					data:{
+						user_token:token,
+						activity_id:activityId,
+					},
+					async:true,
+					success:function (data){
+						console.log(data)
+						if(data.code == 200){
+//							判断有正在比赛的
+							var basicInfo = data.data.basicInfo;
+							var contentList = data.data.list;
+							var contentListHtml = '';
+							if(basicInfo != ''){
+								$(".list_bom .left .left_img img").attr('src',basicInfo.group_a_logo);
+								$(".list_bom .left .left_name").text(basicInfo.group_a_name);
+								var time = basicInfo.start_time;
+								var timearr = time.replace(" ", ":").replace(/\:/g, "-").split("-");
+								var timestr = timearr[1].split("")[1] + "月" + timearr[2] + "日";
+								
+								$(".list_bom .center .name_one .time").text(timestr);
+								if(basicInfo.status == 0){
+									$(".list_bom .center .name_one .state").text('配对中');
+								}else if(basicInfo.status == 1){
+									$(".list_bom .center .name_one .state").text('进行中');
+								}else if(basicInfo.status == 2){
+									$(".list_bom .center .name_one .state").text('报名结束');
+								}else if(basicInfo.status == 3){
+									$(".list_bom .center .name_one .state").text('活动结束');
+								}else if(basicInfo.status == 4){
+									$(".list_bom .center .name_one .state").text('自动匹配');
+								}else if(basicInfo.status == 5){
+									$(".list_bom .center .name_one .state").text('活动暂停');
+								}else if(basicInfo.status == 6){
+									$(".list_bom .center .name_one .state").text('活动取消');
+								}
+//								$(".list_bom .center .name_one .state").text(basicInfo.status);
+								$(".list_bom .center .name_two .group_a_score").text(basicInfo.group_a_score);
+								
+								$(".list_bom .right .right_img img").attr('src',basicInfo.group_b_logo);
+								$(".list_bom .right .right_name").text(basicInfo.group_b_name);
+								$(".list_bom .center .name_two .group_b_score").text(basicInfo.group_b_score);
+								
+							}
+							if(contentList != '' || contentList.length != 0){
+								$.each(contentList, function(i,item) {
+									contentListHtml += '<div class="content_one">'+
+										'					<div class="content_bom">'+
+										'						<div class="left_cen">'+
+										'							<div class="left_cen_lef">'+
+										'								<div class="left_cen_img">'+
+										'									<img src="'+ item.team_a_member_a_logo +'"></img>'+
+										'								</div>'+
+										'								<div class="left_cen_name">'+
+										'									<p>'+ item.team_a_member_a_nickname +'</p>'+
+										'									<img style="width:1.2rem;height:1.2rem;padding-top:1rem;" src="img/'+ (contentList[i].team_a_member_a_sex == 1 ? 'nan' : 'nv') +'.png"/>'+
+										'								</div>'+
+										'							</div>'+
+										'							<div class="left_cen_rig">'+
+										'								<div class="left_cen_img">'+
+										'									<img src="'+ item.team_a_member_b_logo +'"></img>'+
+										'								</div>'+
+										'								<div class="left_cen_name">'+
+										'									<p>'+ item.team_a_member_b_nickname +'</p>'+
+										'									<img style="width:1.2rem;height:1.2rem;padding-top:1rem;" src="img/'+ (contentList[i].team_a_member_b_sex == 1 ? 'nan' : 'nv') +'.png"/>'+
+										'								</div>'+
+										'							</div>'+
+										'						</div>'+
+										'						<div class="center_cen">'+
+										'							<div class="time_two">'+
+										'								<span>'+ item.team_a_score +'</span>'+
+										'								<span>:</span>'+
+										'								<span>'+ item.team_b_score +'</span>'+
+										'							</div>'+
+										'						</div>'+
+										'						<div class="right_cen">'+
+										'							<div class="right_cen_lef">'+
+										'								<div class="right_cen_img">'+
+										'									<img src="'+ item.team_b_member_a_logo +'"></img>'+
+										'								</div>'+
+										'								<div class="right_cen_name">'+
+										'									<p>'+ item.team_b_member_a_nickname +'</p>'+
+										'									<img style="width:1.2rem;height:1.2rem;padding-top:1rem;" src="img/'+ (contentList[i].team_b_member_a_sex == 1 ? 'nan' : 'nv') +'.png"/>'+
+										'								</div>'+
+										'							</div>'+
+										'							<div class="right_cen_rig">'+
+										'								<div class="right_cen_img">'+
+										'									<img src="'+ item.team_b_member_b_logo +'"></img>'+
+										'								</div>'+
+										'								<div class="right_cen_name">'+
+										'									<p>'+ item.team_b_member_b_nickname +'</p>'+
+										'									<img style="width:1.2rem;height:1.2rem;padding-top:1rem;" src="img/'+ (contentList[i].team_b_member_b_sex == 1 ? 'nan' : 'nv') +'.png"/>'+
+										'								</div>'+
+										'							</div>'+
+										'						</div>'+											
+										'					</div>	'+
+										'				</div>';
+								});
+								$(".content").html(contentListHtml)
+							}else{
+								$(".content").html('<p style="text-align: center;line-height: 50px;">暂无比赛数据</p>')
+							}
+							
+						}	
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>

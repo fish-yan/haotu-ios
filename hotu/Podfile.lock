@@ -1,0 +1,180 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - Alamofire (4.9.1)
+  - BmobSDK (2.4.1)
+  - BRPickerView (2.5.1):
+    - BRPickerView/AddressPickerView (= 2.5.1)
+    - BRPickerView/Base (= 2.5.1)
+    - BRPickerView/DatePickerView (= 2.5.1)
+    - BRPickerView/StringPickerView (= 2.5.1)
+  - BRPickerView/AddressPickerView (2.5.1):
+    - BRPickerView/Base
+  - BRPickerView/Base (2.5.1)
+  - BRPickerView/DatePickerView (2.5.1):
+    - BRPickerView/Base
+  - BRPickerView/StringPickerView (2.5.1):
+    - BRPickerView/Base
+  - Flutter (1.0.0)
+  - FlutterPluginRegistrant (0.0.1):
+    - Flutter
+    - shared_preferences
+    - url_launcher
+    - webview_flutter
+  - HandyJSON (5.0.1)
+  - hotu_module (0.0.1):
+    - Flutter
+  - IQKeyboardManager (6.5.4)
+  - MBProgressHUD (1.1.0)
+  - MJRefresh (3.2.2)
+  - RongCloudIM (2.10.2):
+    - RongCloudIM/IMKit (= 2.10.2)
+    - RongCloudIM/IMLib (= 2.10.2)
+    - RongCloudIM/RedPacket (= 2.10.2)
+    - RongCloudIM/RongSticker (= 2.10.2)
+    - RongCloudIM/Sight (= 2.10.2)
+  - RongCloudIM/IMKit (2.10.2):
+    - RongCloudIM/IMLib
+  - RongCloudIM/IMLib (2.10.2)
+  - RongCloudIM/RedPacket (2.10.2):
+    - RongCloudIM/IMKit
+  - RongCloudIM/RongSticker (2.10.2):
+    - RongCloudIM/IMKit
+  - RongCloudIM/Sight (2.10.2):
+    - RongCloudIM/IMLib
+  - SDWebImage (5.4.1):
+    - SDWebImage/Core (= 5.4.1)
+  - SDWebImage/Core (5.4.1)
+  - shared_preferences (0.0.1):
+    - Flutter
+  - shared_preferences_macos (0.0.1):
+    - Flutter
+  - shared_preferences_web (0.0.1):
+    - Flutter
+  - SwiftyJSON (5.0.0)
+  - UMCCommon (2.1.1)
+  - UMCShare/Core (6.9.6):
+    - UMCCommon
+  - UMCShare/Social/ReducedQQ (6.9.6):
+    - UMCCommon
+    - UMCShare/Core
+  - url_launcher (0.0.1):
+    - Flutter
+  - url_launcher_macos (0.0.1):
+    - Flutter
+  - url_launcher_web (0.0.1):
+    - Flutter
+  - webview_flutter (0.0.1):
+    - Flutter
+  - WechatOpenSDK (1.8.1)
+  - YYText (1.0.7)
+
+DEPENDENCIES:
+  - AFNetworking
+  - Alamofire
+  - BmobSDK
+  - BRPickerView
+  - Flutter (from `hotu_module/.ios/Flutter/engine`)
+  - FlutterPluginRegistrant (from `hotu_module/.ios/Flutter/FlutterPluginRegistrant`)
+  - HandyJSON
+  - hotu_module (from `hotu_module/.ios/Flutter`)
+  - IQKeyboardManager
+  - MBProgressHUD
+  - MJRefresh (= 3.2.2)
+  - RongCloudIM
+  - SDWebImage
+  - shared_preferences (from `hotu_module/.ios/Flutter/.symlinks/shared_preferences/ios`)
+  - shared_preferences_macos (from `hotu_module/.ios/Flutter/.symlinks/shared_preferences_macos/ios`)
+  - shared_preferences_web (from `hotu_module/.ios/Flutter/.symlinks/shared_preferences_web/ios`)
+  - SwiftyJSON
+  - UMCShare/Social/ReducedQQ
+  - url_launcher (from `hotu_module/.ios/Flutter/.symlinks/url_launcher/ios`)
+  - url_launcher_macos (from `hotu_module/.ios/Flutter/.symlinks/url_launcher_macos/ios`)
+  - url_launcher_web (from `hotu_module/.ios/Flutter/.symlinks/url_launcher_web/ios`)
+  - webview_flutter (from `hotu_module/.ios/Flutter/.symlinks/webview_flutter/ios`)
+  - WechatOpenSDK (= 1.8.1)
+  - YYText
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - Alamofire
+    - BmobSDK
+    - BRPickerView
+    - HandyJSON
+    - IQKeyboardManager
+    - MBProgressHUD
+    - MJRefresh
+    - RongCloudIM
+    - SDWebImage
+    - SwiftyJSON
+    - UMCCommon
+    - UMCShare
+    - WechatOpenSDK
+    - YYText
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: hotu_module/.ios/Flutter/engine
+  FlutterPluginRegistrant:
+    :path: hotu_module/.ios/Flutter/FlutterPluginRegistrant
+  hotu_module:
+    :path: hotu_module/.ios/Flutter
+  shared_preferences:
+    :path: hotu_module/.ios/Flutter/.symlinks/shared_preferences/ios
+  shared_preferences_macos:
+    :path: hotu_module/.ios/Flutter/.symlinks/shared_preferences_macos/ios
+  shared_preferences_web:
+    :path: hotu_module/.ios/Flutter/.symlinks/shared_preferences_web/ios
+  url_launcher:
+    :path: hotu_module/.ios/Flutter/.symlinks/url_launcher/ios
+  url_launcher_macos:
+    :path: hotu_module/.ios/Flutter/.symlinks/url_launcher_macos/ios
+  url_launcher_web:
+    :path: hotu_module/.ios/Flutter/.symlinks/url_launcher_web/ios
+  webview_flutter:
+    :path: hotu_module/.ios/Flutter/.symlinks/webview_flutter/ios
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  BmobSDK: 930525437e6602f7146108e11a9796604a1edbb9
+  BRPickerView: c51b8d27cd053baf282e75a19d7dfcefbbaf42c2
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  FlutterPluginRegistrant: e3f366aba4e4c30247e0194512c8f264e8db0312
+  HandyJSON: d45b8415c501e3affc59ca9762c1197ff0feb646
+  hotu_module: 5da1336acac1d0704d260227e982a2afb62f6fc2
+  IQKeyboardManager: 72b359cd7e777e3a984cedbe05f8da45320cbb63
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MJRefresh: 72a46ecaa2a0feaf48fc5198dff95f25f8bb27c6
+  RongCloudIM: 16ba57bdec34c8ea6a91b9d6c7e3ee05e37ef7ba
+  SDWebImage: 29c340dbdcef342bb13125553f4e19ce056b07a7
+  shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
+  shared_preferences_macos: f3f29b71ccbb56bf40c9dd6396c9acf15e214087
+  shared_preferences_web: 141cce0c3ed1a1c5bf2a0e44f52d31eeb66e5ea9
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  UMCCommon: 971f324a5a99c9d662ae040a815e7e3d7ef8b2a8
+  UMCShare: e0cef55c0fd6051254c8cda1d0630eb578b27bad
+  url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
+  url_launcher_macos: fd7894421cd39320dce5f292fc99ea9270b2a313
+  url_launcher_web: e5527357f037c87560776e36436bf2b0288b965c
+  webview_flutter: d2b4d6c66968ad042ad94cbb791f5b72b4678a96
+  WechatOpenSDK: 491d965d79335070328571d3e79f714549e79a5e
+  YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
+
+PODFILE CHECKSUM: a85e1a878da274a606a30170955e4d1aa4fb72d2
+
+COCOAPODS: 1.9.1

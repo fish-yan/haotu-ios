@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FYShareViewController" customModule="好兔" customModuleProvider="target">
+            <connections>
+                <outlet property="bottom" destination="lcb-Uh-a6A" id="QYy-HR-9oG"/>
+                <outlet property="groupStackV" destination="FKg-4Y-m9m" id="B6F-5v-cTs"/>
+                <outlet property="m1" destination="J6m-qV-jfL" id="ah9-JE-gQ0"/>
+                <outlet property="m2" destination="5GX-ro-JMe" id="Dsh-aL-Ug8"/>
+                <outlet property="qqBtn" destination="86n-Qd-7nz" id="LEF-YU-SA4"/>
+                <outlet property="qzoneBtn" destination="1DZ-Io-WIu" id="DG8-IC-wiR"/>
+                <outlet property="tencentView" destination="v4N-26-l10" id="3RV-qq-Kgg"/>
+                <outlet property="timeLineBtn" destination="dd4-Ru-Q3K" id="Az8-gO-s4n"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="wxBtn" destination="5WK-YV-pBz" id="Pxb-zX-j4R"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Rx-7A-yKv">
+                    <rect key="frame" x="0.0" y="676" width="414" height="220"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mVZ-RJ-nor">
+                            <rect key="frame" x="10" y="10" width="394" height="200"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="v4N-26-l10">
+                                    <rect key="frame" x="0.0" y="0.0" width="394" height="100"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5WK-YV-pBz">
+                                            <rect key="frame" x="0.0" y="0.0" width="91" height="100"/>
+                                            <state key="normal" image="icon_share_wxsession"/>
+                                            <connections>
+                                                <action selector="wxShareSessionAction:" destination="-1" eventType="touchUpInside" id="szK-pb-RDZ"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dd4-Ru-Q3K">
+                                            <rect key="frame" x="101" y="0.0" width="91" height="100"/>
+                                            <state key="normal" image="icon_share_timeline"/>
+                                            <connections>
+                                                <action selector="wxShareTimelineAction:" destination="-1" eventType="touchUpInside" id="diX-ph-GbZ"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="86n-Qd-7nz">
+                                            <rect key="frame" x="202" y="0.0" width="91" height="100"/>
+                                            <state key="normal" image="icon_share_qq"/>
+                                            <connections>
+                                                <action selector="qqShareActon:" destination="-1" eventType="touchUpInside" id="VJt-i7-B9k"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1DZ-Io-WIu">
+                                            <rect key="frame" x="303" y="0.0" width="91" height="100"/>
+                                            <state key="normal" image="icon_share_qzone"/>
+                                            <connections>
+                                                <action selector="qzoneShareAction:" destination="-1" eventType="touchUpInside" id="eA9-O4-cEK"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="dd4-Ru-Q3K" firstAttribute="width" secondItem="5WK-YV-pBz" secondAttribute="width" id="7fW-Q4-4ME"/>
+                                        <constraint firstItem="1DZ-Io-WIu" firstAttribute="width" secondItem="5WK-YV-pBz" secondAttribute="width" id="XqM-ie-DJV"/>
+                                        <constraint firstAttribute="height" constant="100" id="eRB-nm-Kxg"/>
+                                        <constraint firstItem="86n-Qd-7nz" firstAttribute="width" secondItem="5WK-YV-pBz" secondAttribute="width" id="fRu-HY-c3P"/>
+                                    </constraints>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="FKg-4Y-m9m">
+                                    <rect key="frame" x="0.0" y="100" width="394" height="100"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RFy-RM-qbI">
+                                            <rect key="frame" x="0.0" y="0.0" width="91" height="100"/>
+                                            <state key="normal" image="icon_share_group"/>
+                                            <connections>
+                                                <action selector="groupShareAction:" destination="-1" eventType="touchUpInside" id="rb0-Sm-pyv"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WZ1-QT-g9X">
+                                            <rect key="frame" x="101" y="0.0" width="91" height="100"/>
+                                            <connections>
+                                                <action selector="wxShareTimelineAction:" destination="-1" eventType="touchUpInside" id="98K-FO-sSe"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6m-qV-jfL">
+                                            <rect key="frame" x="202" y="0.0" width="91" height="100"/>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5GX-ro-JMe">
+                                            <rect key="frame" x="303" y="0.0" width="91" height="100"/>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="J6m-qV-jfL" firstAttribute="width" secondItem="RFy-RM-qbI" secondAttribute="width" id="RsF-1e-EZD"/>
+                                        <constraint firstItem="WZ1-QT-g9X" firstAttribute="width" secondItem="RFy-RM-qbI" secondAttribute="width" id="bDz-Jl-1FI"/>
+                                        <constraint firstAttribute="height" constant="100" id="cr6-5H-PrQ"/>
+                                        <constraint firstItem="5GX-ro-JMe" firstAttribute="width" secondItem="RFy-RM-qbI" secondAttribute="width" id="xVq-2R-83b"/>
+                                    </constraints>
+                                </stackView>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="mVZ-RJ-nor" secondAttribute="bottom" constant="10" id="AhW-zs-2W5"/>
+                        <constraint firstAttribute="trailing" secondItem="mVZ-RJ-nor" secondAttribute="trailing" constant="10" id="BBb-ct-5Dv"/>
+                        <constraint firstItem="mVZ-RJ-nor" firstAttribute="top" secondItem="8Rx-7A-yKv" secondAttribute="top" constant="10" id="C9u-Gs-RUx"/>
+                        <constraint firstItem="mVZ-RJ-nor" firstAttribute="leading" secondItem="8Rx-7A-yKv" secondAttribute="leading" constant="10" id="giy-5n-ZBN"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.5" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="8Rx-7A-yKv" secondAttribute="trailing" id="Pt0-xX-Kyr"/>
+                <constraint firstItem="8Rx-7A-yKv" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="f6z-xB-cHm"/>
+                <constraint firstAttribute="bottom" secondItem="8Rx-7A-yKv" secondAttribute="bottom" id="lcb-Uh-a6A"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="138" y="153"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_share_group" width="50" height="77"/>
+        <image name="icon_share_qq" width="51" height="76"/>
+        <image name="icon_share_qzone" width="51" height="76"/>
+        <image name="icon_share_timeline" width="50" height="76"/>
+        <image name="icon_share_wxsession" width="56" height="76"/>
+    </resources>
+</document>

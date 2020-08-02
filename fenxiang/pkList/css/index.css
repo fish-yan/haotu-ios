@@ -1,0 +1,239 @@
+/* pages/events/events.wxss */
+page{
+  background: #F4F5F5;
+}
+.title{
+	text-align: center;
+	background: #fff;
+	padding-top: 1rem;
+	padding-bottom: 1.2rem;
+  /* height: 280rem; */
+}
+.title .title_center{
+	margin:0 auto;
+	width: 7.6rem;
+	height: 7.3rem;
+	padding-top:0.3rem;
+	border-radius: 100%;
+	background:linear-gradient(90deg,rgba(255,255,255,1) 70%,rgba(50,170,255,1) 100%);
+	position: relative;
+}
+.title .title_center .title_img{
+	width: 6.7rem;
+	height: 6.7rem;
+	border: 0.05rem solid rgba(236,236,236,1);
+	background: #fff;
+	border-radius: 50%;
+	margin: 0 0.3rem;
+}
+.title .title_center .title_img img{
+	border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  display:0;
+
+}
+.title .title_center .title_huo{
+	width: 1.5rem;
+	height: 1.5rem;
+	position: absolute;
+	border-radius: 50%;
+	right: -1.5rem;
+	top: 3rem;
+}
+.title .title_center .title_num{
+	width: 5rem;
+	height: 1.7rem;
+	position: absolute;
+	/* background: url(../../img/kuang.png) no-repeat; 
+	background-size: 100% 100%; */
+	right:-6.8rem;
+	top: 3.3rem;
+	color: #32AAFF;
+	font-size: 1.2rem;
+	text-indent: 0.5rem;
+	/*text-align: center;*/
+	line-height: 1.8rem;
+}
+.title .title_center .title_num img{
+  position: absolute;
+  top: 0.05rem;
+  left: 0.05rem;
+  width: 5rem;
+  height: 1.7rem;
+}
+.title .title_name{
+	color: #2B2B2B;
+	font-size: 2rem;
+	font-weight: bold;
+	text-align: center;
+	margin: 0.7rem 0 0.5rem;
+}
+
+.tab{
+	min-height: 10rem;
+	background: #fff;
+	margin-top: 0.5rem;
+}
+.tab .tab_title{
+	height: 6.4rem;
+	border-bottom: 1px solid #e5e5e5;
+}
+.tab .tab_title .tab_lab{
+	float: left;
+	color: #2B2B2B;
+	font-size: 1.8rem;
+	font-weight: bold;
+	/*padding: 2rem 3.6rem 0 2rem;*/
+	width: 33%;
+	line-height: 5rem;
+	text-align: center;
+}
+.tab .tab_title .tab_lab .border{
+	width: 5rem;
+	height: 0.25rem;
+	border-radius: 0.25rem;
+	background: #fff;
+	margin: 0.25rem auto 0;	
+}
+.tab .tab_title .tab_lab .border.active{
+	background: #32AAFF;	
+}
+.tab .tab_main{
+	font-size: 1.2rem;
+	color: #B1B1B1;
+	line-height: 1.6rem;
+	margin-bottom: 7rem;
+}
+.tab .tab_main div.tab_right{
+	width: 100%;
+	display: none;
+}
+
+.tab .tab_main div.tab_center{
+	width: 100%;
+	display: none;
+}
+
+
+
+.tab_main .active_msg{
+  padding: 0.9rem 0 0 1.15rem;
+  border-bottom: 0.05rem solid #F4F5F5;
+}
+.tab_main .msg_top{
+  font-size:1.3rem;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:1.85rem;
+  color:rgba(138,138,138,1);
+}
+.tab_main .msg_bom{
+  font-size:1.6rem;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:3rem;
+  color:rgba(43,43,43,1);
+}
+
+.tab_right{
+  background: #fff;
+  padding:1rem 0;
+}
+.tab_right .equipment_top{
+  font-size:1.4rem;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:1.85rem;
+  color:rgba(138,138,138,1);
+  padding-left: 1.15rem;
+}
+.tab_right .equipment_bom{
+  font-size:1.6rem;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:3rem;
+  color:rgba(43,43,43,1);
+  padding-left: 1.15rem;
+  border-bottom: 0.01rem solid #F4F5F5;
+}
+.tab_right .equipment_img{
+  width: 65%;
+  height: auto;
+  margin: 2.7rem auto;
+}
+.tab_right .equipment_img img{
+  width: 100%;
+}
+
+.tab_center{
+  margin-top: 0.5rem;
+  background: #fff;
+  padding:1rem 0;
+}
+.tab_center .game_rules{
+  width: 90%;
+  margin: 0 auto;
+  font-size:1.5rem;
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height:2.5rem;
+  color:rgba(177,177,177,1);
+  text-indent: 2.6rem;
+}
+
+
+
+.against{
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  height: 6.4rem;
+  background: #fff;
+}
+.against .against_left{
+  width: 26%;
+  float: left;
+  height: 100%;
+  line-height: 6.4rem;
+  font-size:1.3rem;
+  font-family:PingFang SC;
+  font-weight:500;
+  color:rgba(177,177,177,1);
+  text-align: right;
+}
+.against .against_center{
+  width: 60%;
+  float: left;
+  height: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.against .against_center .against_img{
+  /* float: left; */
+  display: inline-block;
+  width:3rem;
+  height:3rem;
+  background:rgba(0,0,0,0);
+  border:0.05rem solid rgba(236,236,236,1);
+  border-radius:50%;
+  margin:1.5rem 0 0 0.85rem; 
+
+}
+.against .against_center .against_img img{
+  width: 100%;
+  height: 100%;
+  border-radius:50%;
+  
+}
+.against .against_right{
+  float: right;
+  width: 10%;
+  text-align: center;
+}
+.against .against_right img{
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-top: 2rem;
+}

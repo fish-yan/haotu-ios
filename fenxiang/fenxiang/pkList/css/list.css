@@ -1,0 +1,94 @@
+.list {
+	width: 100%;
+	height: 100vh;
+	background: #F4F5F5;
+}
+
+.list .list_group {
+	width: 100%;
+	height: 3.8rem;
+	font-size: 1.8rem;
+	line-height: 3.8rem;
+	text-indent: 2rem;
+}
+
+.list_cen {
+	width: 100%;
+
+	background: #FFFFFF;
+}
+.list_did{
+	height: 7rem;
+	border-bottom: 0.1rem solid #F4F5F5;
+	
+}
+.list_did .name{
+	width: 8.5rem;
+	float: right;
+}
+.list_did .name p{
+	width: 5rem;
+	height: 5rem;
+	margin: 1rem auto;
+}
+.list_did .name p img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+.list_cen .list_cen_left {
+	width: 7rem;
+	height: 100%;
+	float: left;
+}
+
+.list_cen .list_cen_left img {
+	width: 4rem;
+	height: 4rem;
+	margin: 1.5rem auto;
+	border-radius: 50%;
+}
+
+.list_cen .list_cen_left.gray img {
+	-webkit-filter: grayscale(1); /* Webkit */
+         filter: gray; /* IE6-9 */  
+         filter: grayscale(1); /* W3C */
+}
+
+.list_cen .list_cen_center {
+	/*width: 7rem;*/
+	height: 100%;
+	float: left;
+	font-size: 1.9rem;
+	font-family: Ping Hei;
+	/*font-weight: 600;*/
+	line-height: 7rem;
+	color: rgba(43, 43, 43, 1);
+}
+.list_cen .list_cen_center.gray{
+	color: gray;
+}
+.list_cen .list_cen_right {
+	/*width: 7rem;*/
+	height: 100%;
+	float: left;
+}
+
+.list_cen .list_cen_right img {
+	width: 1.2rem;
+	height: 1.2rem;
+	padding: 2.9rem 1rem;
+}
+.list_admin {
+	width: 100%;
+	height: 3.8rem;
+	font-size: 1.8rem;
+	line-height: 3.8rem;
+	text-indent: 2rem;
+	font-family:Ping Hei;
+	font-weight:600;
+}
+
+
+
+

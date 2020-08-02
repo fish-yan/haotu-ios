@@ -1,0 +1,131 @@
+.pro{
+	width: 100%;
+	height: 100%;
+	background: #fff;
+}
+
+
+
+.tab{
+	min-height: 5rem;
+	background: #fff;
+	margin-top: 0.5rem;
+}
+.tab .tab_title{
+	width: 94%;
+	height: 3rem;
+	/*background: red;*/
+	border: 1px solid #e5e5e5;
+	margin: auto;
+	border-radius: 1.5rem;
+}
+.tab .tab_title .tab_lab{
+	float: left;
+	color: #C6C6C6;
+	font-size: 1.4rem;
+	font-weight: 400;
+	width: 19.6%;
+	line-height: 3rem;
+	text-align: center;
+	border-right: 1px solid #C6C6C6;
+}
+.tab .tab_title .tab_none{
+	border-right: none;
+}
+.tab .tab_title .tab_lab .border{
+	color: #C6C6C6;
+}
+.tab .tab_title .tab_lab .border.active{
+	color: #000;	
+}
+
+.active_top{
+	height: 4.3rem;
+	line-height: 4.3rem;
+	color: #0FACFF;
+	font-size: 1.5rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	padding-left: 2.5rem;
+	border-bottom: 1px solid #C6C6C6;
+}
+
+.active_msg{
+	height: 11.8rem;
+	border-bottom: 1px solid #C6C6C6;
+
+}
+.active_msg .msg_left{
+	width: 20%;
+	height: 90%;
+	text-align: center;
+	padding-top: 1rem;
+	color: #FF5151;
+	font-size:1.5rem;
+	font-family:PingFang SC;
+	font-weight:400;
+	float: left;
+}
+.active_msg .msg_right{
+	width: 80%;
+	height: 6.7rem;
+	float: right;
+}
+.active_msg .msg_right .msg_right_top{
+	height: 6.7rem;
+	border-bottom: 1px solid #C6C6C6;
+	
+}
+ .active_msg .msg_right .msg_right_top .right_top_one{
+	padding-top: 1rem;
+	font-size:1.4rem;
+	font-family:PingFang SC;
+	font-weight:400;
+	color:rgba(0,0,0,1);
+	padding-left: 1rem;
+	
+}
+.active_msg .msg_right .msg_right_top .right_top_one .fon{
+	float: left;
+}
+.active_msg .msg_right .msg_right_top .right_top_tow{
+	padding-top: 1rem;
+	padding-left: 1rem;
+	font-size:1.4rem;
+	font-family:PingFang SC;
+	font-weight:400;
+	color:rgba(0,0,0,1);
+}
+.active_msg .msg_right .msg_right_top .right_top_tow p{
+	float: left;
+	
+}
+.msg_right_bottom{
+	height: 5rem;
+}
+.msg_right_bottom .msg_img{
+	width: 3.3rem;
+	height: 3.3rem;
+	border-radius: 50%;
+	float: left;
+	margin: 0.8rem auto;
+	padding-left: 1rem;
+}
+.msg_right_bottom .msg_img img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+.msg_right_bottom .msg_size{
+	width: 80%;
+	line-height: 5rem;
+	font-size:1.4rem;
+	font-family:PingFang SC;
+	font-weight:400;
+	color:rgba(0,0,0,1);
+	float: left;
+	padding-left: 1rem;
+}
+.tab_two,.tab_three,.tab_four,.tab_five{
+	display: none;
+}

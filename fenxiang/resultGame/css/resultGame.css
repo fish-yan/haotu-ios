@@ -1,0 +1,267 @@
+.title{
+	text-align: center;
+	background: #fff;
+	padding-top: 1rem;
+	padding-bottom: 1.2rem;
+	margin-bottom: 0.1rem;
+	
+}
+.title .title_center{
+	margin:0 auto;
+	width: 7.6rem;
+	height: 7.3rem;
+	padding-top:0.3rem;
+	border-radius: 100%;
+	background:linear-gradient(90deg,rgba(255,255,255,1) 70%,rgba(50,170,255,1) 100%);
+	position: relative;
+}
+.title .title_center .title_img{
+	width: 6.7rem;
+	height: 6.7rem;
+	border: 1px solid rgba(236,236,236,1);
+	background: #fff;
+	border-radius: 50%;
+	margin: 0 0.3rem;
+}
+.title .title_center .title_img img{
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  display:0;
+
+}
+.title .title_center .title_huo{
+	width: 1.5rem;
+	height: 1.5rem;
+	position: absolute;
+	border-radius: 50%;
+	right: -1.5rem;
+	top: 3rem;
+}
+.title .title_center .title_huo img{
+	width: 100%;
+	height: 100%;
+}
+.title .title_center .title_num{
+	width: 4rem;
+	height: 1.7rem;
+	position: absolute;
+	right:-5.5rem;
+	top: 3.3rem;
+	color: #32AAFF;
+	font-size: 1.5rem;
+	text-indent: 0.5rem;
+	/*text-align: center;*/
+	line-height: 1.8rem;
+}
+.title .title_center .title_num img{
+  position: absolute;
+  top: 0.05rem;
+  left: 0.05rem;
+  width: 4rem;
+  height: 1.7rem;
+}
+.title .title_name{
+	color: #2B2B2B;
+	font-size: 1.8rem;
+  font-family:PingFang SC;
+	font-weight: bold;
+	text-align: center;
+	margin: 0.7rem 0 0;
+}
+
+.active_title{
+	height: 14rem;
+	background: #fff;
+}
+.active_title .active_left{
+	float: left;
+	width: 39%;
+	height: 100%;
+	border-right:1px solid #e5e5e5;
+	font-weight: bold;
+}
+.active_title .active_left .time_time{
+	padding-top: 2.5rem;
+	color: #32AAFF;
+	font-size: 4rem;
+	text-align: center;
+}
+.active_title .active_left .time_date{
+	color: #2B2B2B;
+	font-size: 2rem;
+	text-align: center;
+}
+.active_title .active_right{
+	float: right;
+	width: 60%;
+	height: 100%;
+}
+.active_title .active_right .active_name{
+	color: #2B2B2B;
+	font-size: 1.8rem;
+	font-weight: bold;
+	padding-top: 2rem;
+	margin-left: 1.8rem;
+	margin-bottom: 1.4rem;
+}
+.active_title .active_right .active_address .img{
+	width: 1.4rem;
+	height: 1.4rem;
+	/*float: left;*/
+	margin-left: 1.8rem;
+	vertical-align: middle;
+	display: inline-block;
+}
+.active_title .active_right .active_address .address{
+	vertical-align: middle;
+	display: inline-block;
+	/*float: left;*/
+	width: 10rem;
+	font-size: 1.4rem;
+	margin-left: 0.2rem;
+}
+.active_title .active_right .active_per{
+	margin-top: 0.5rem;
+}
+.active_title .active_right .active_per .img{
+	width: 1.4rem;
+	height: 1.4rem;
+	/*float: left;*/
+	margin-left: 1.8rem;
+	vertical-align: middle;
+	display: inline-block;
+}
+.active_title .active_right .active_per .name_ha{
+	height:2rem;
+	/*float: left;*/
+	vertical-align: middle;
+	display: inline-block;
+	font-size: 1.4rem;
+	margin-left: 0.2rem;
+}
+
+
+.ranking{
+	width: 100%;
+	height: 100%;
+}
+.rank{
+	width: 100%;
+	height: 8.4rem;
+	margin-top: 0.5rem;
+	background: #FFFFFF;
+}
+.rank .rank_one{
+	width: 15%;
+	height: 100%;
+	float: left;
+}
+.rank .rank_one p{
+	text-align: center;
+	line-height: 8.4rem;
+	font-size:2.4rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(255,142,142,1);
+}
+
+
+.rank .rank_two{
+	width: 30%;
+	height: 100%;
+
+	float: left;
+}
+.rank .rank_two .two_img{
+	width: 3.5rem;
+	height: 3.5rem;
+	margin: 1.2rem auto;
+}
+.rank .rank_two .two_img img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+.rank .rank_two .name{
+	width: 100%;
+	height: 2.4rem;
+/*	background: red;*/
+}
+.rank .rank_two .name .name_la{
+	width: 50%;
+	margin-left: 20%;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+	text-align: center;
+	font-size:1.2rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(138,138,138,1);
+	float: left;
+}
+.rank .rank_two .name img{
+	margin-top: 1.5rem;
+	width: 1.2rem;
+	height: 1.2rem;
+}
+
+
+.rank .rank_three{
+	width: 30%;
+	height: 100%;
+	float: left;
+}
+
+.rank .rank_three .two_img{
+	width: 3.5rem;
+	height: 3.5rem;
+	margin: 1.2rem auto;
+}
+.rank .rank_three .two_img img{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+}
+.rank .rank_three .name{
+	width: 100%;
+	height: 2.4rem;
+/*	background: red;*/
+}
+.rank .rank_three .name .name_la{
+	width: 50%;
+	margin-left: 20%;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+	text-align: center;
+	font-size:1.2rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	color:rgba(138,138,138,1);
+	float: left;
+}
+.rank .rank_three .name img{
+	margin-top: 1.5rem;
+	width: 1.2rem;
+	height: 1.2rem;
+}
+
+
+
+
+.rank .rank_four{
+	width: 25%;
+	height: 100%;
+	float: left;
+	font-size:1.7rem;
+	font-family:PingFang SC;
+	font-weight:500;
+	line-height:8.4rem;
+	color:rgba(50,170,255,1);
+}
+
+.rank .rank_four p{
+	float: left;
+}

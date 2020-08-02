@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=yes" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/signUp.css"/>
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="signUp">
+			<div class="active_title">
+				<div class="active_left">
+					<div class="time_time">13:00</div>
+					<div class="time_date">09月21日</div>
+				</div>
+				<div class="active_right">
+					<div class="active_name">第三届羽毛球大赛活动</div>
+					<div class="active_address">
+						<img class="img" src="img/wei2.png"/>
+						<span class="address">
+							国定东路275-8号杨浦体育馆
+						</span>	
+					</div>
+					<div class="active_per">
+						<img class="img" src="img/rentou.png"/>
+						<span class="name">
+							哈哈哈哈
+						</span>
+					</div>
+				</div>
+			</div>
+			
+			<div class="active_deploy">
+				<div class="deploy_title">
+					<span>报名选队友</span>
+					<img src="img/bom.png"/>
+				</div>
+				<div class="deploy_all">
+					<div class="deploy_one">
+						<div class="left">
+							<p class="deploy_img">
+								<img src="img/tuzi.png"/>
+							</p>
+						</div>
+						<div class="center">
+							<p>01</p>
+						</div>
+						<div class="right">
+							<p class="deploy_img">
+								<img src="img/tuzi.png"/>
+							</p>
+							<p class="deploy_name">
+								<span>111111</span>
+								<img src="img/nan.png"/>
+							</p>
+						</div>
+					</div>
+					
+					<div class="deploy_one">
+						<div class="left">
+							<p class="deploy_img">
+								<img src="img/tuzi.png"/>
+							</p>
+						</div>
+						<div class="center">
+							<p>01</p>
+						</div>
+						<div class="right">
+							<p class="deploy_img">
+								<img src="img/tuzi.png"/>
+							</p>
+							<p class="deploy_name">
+								<span>1</span>
+								<img src="img/nan.png"/>
+							</p>
+						</div>
+					</div>
+					
+					<div class="deploy_one">
+						<div class="left">
+							<p class="deploy_img">
+								<img src="img/tuzi.png"/>
+							</p>
+							<p class="deploy_name">
+								<span>111111</span>
+								<img src="img/nan.png"/>
+							</p>
+						</div>
+						<div class="center">
+							<p>01</p>
+						</div>
+						<div class="right">
+							<p class="deploy_img">
+								<img src="img/tuzi.png"/>
+							</p>
+							<p class="deploy_name">
+								<span>111111</span>
+								<img src="img/nan.png"/>
+							</p>
+						</div>
+					</div>
+					
+					<div class="deploy_one">
+						<div class="left">
+							<p class="deploy_img">
+								<img src="img/tuzi.png"/>
+							</p>
+						</div>
+						<div class="center">
+							<p>01</p>
+						</div>
+						<div class="right">
+							<p class="deploy_img">
+								<img src="img/tuzi.png"/>
+							</p>
+						</div>
+					</div>
+					<div class="deploy_one">
+						<div class="left">
+							<p class="deploy_img">
+								<img src="img/tuzi.png"/>
+							</p>
+						</div>
+						<div class="center">
+							<p>01</p>
+						</div>
+						<div class="right">
+							<p class="deploy_img">
+								<img src="img/tuzi.png"/>
+							</p>
+						</div>
+					</div>
+					<div class="deploy_one">
+						<div class="left">
+							<p class="deploy_img">
+								<img src="img/tuzi.png"/>
+							</p>
+						</div>
+						<div class="center">
+							<p>01</p>
+						</div>
+						<div class="right">
+							<p class="deploy_img">
+								<img src="img/tuzi.png"/>
+							</p>
+						</div>
+					</div>
+					
+					
+					<div class="clearfix"></div>
+				</div>
+			</div>
+			
+			<div class="active_pay">
+				<div class="pay_title">
+					<span>支付方式</span>
+				</div>
+				
+				<div class="pay_all">
+					<div class="pay_wx">
+						<img src="img/neiquan.png"/>
+						<span>微信</span>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+		
+		<div class="pay_money">
+			<div class="pay_left">
+				<span class="one">合计：<span class="two">0.0元</span></span><span class="three">(含保险费用)</span>
+			</div>
+			<div class="pay_btn">
+				确认支付
+			</div>
+		</div>
+	</body>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		
+		//			报名时获取活动信息和人员排布
+		var token = getQueryString("token"); //这这是从上一页截取的  
+		var groupActivityId = getQueryString("activity_id"); //这是从上一页截取的  
+
+		console.log(groupActivityId)
+		
+		var user_logo = '';//用户头像
+		var nick_name = '';//用户昵称
+		var tuSex = '1';//用户性别
+
+		queryTeamMemberList();
+		queryUserInfoByUserId();	
+		
+//			获取活动选座位的排位列表
+		function queryTeamMemberList() {
+			$.ajax({
+				type: "post",
+				url: httpUrl + "/api/v1.0/singup/signUpActivityDetail",
+				data: {
+					activity_id: groupActivityId,
+					user_token: token,
+				},
+				dataType: 'json',
+				async: true,
+				success: function(data) {
+					console.log(data)
+					if(data.code == 200){
+						$(".time_time").text(data.data.start_date.slice(10,16));
+//						$(".time_date").text(data.data.start_date.slice(5,10));
+						var time = data.data.start_date;
+						var timearr = time.replace(" ", ":").replace(/\:/g, "-").split("-");
+						var timestr = timearr[1].split("")[1] + "月" + timearr[2] + "日";
+						$(".time_date").text(timestr);
+						$(".active_name").text(data.data.group_name);
+						$(".address").text(data.data.activity_address);
+						$(".name").text(data.data.nick_name);
+						$(".two").text(data.data.signupAmount);
+						
+						var deployHtml = '';
+						$.each(data.data.member_list, function(i,item) {
+							if(item.menber_no === 'A'){
+								deployHtml += '<div class="deploy_one">';
+								if(item.signUpId == null || item.signUpId == ''){
+									deployHtml += '<div class="left tuB" onclick="tuBtn(this)" data-id="'+ item.team_member_id +'" data-name="'+ item.team_name +'" data-no="'+ item.menber_no +'">'+
+									'		<p class="deploy_img">'+
+									'			<img src="img/tuzi.png"/>'+
+									'		</p>'+	
+									'	</div>';
+								}else{
+									deployHtml += '<div class="left tuA">'+
+									'		<p class="deploy_img">'+
+									'			<img src="'+ item.user_logo +'"/>'+
+									'		</p>'+
+									'		<p class="deploy_name">'+
+									'			<span>'+ item.user_nickname +'</span>'+
+									'			<img src="img/'+ (item.sex == 1 ? 'nan' : 'nv') +'.png"/>'+
+									'		</p>'+
+									'	</div>';
+								}
+									
+								
+								deployHtml += '<div class="center">'+
+									'		<p>'+ (((i+2)/2) < 10 ? '0' + ((i+2)/2) : ((i+2)/2)) +'</p>'+
+									'	</div>';
+							}else{
+								if(item.signUpId == null || item.signUpId == ''){
+									deployHtml += '<div class="right tuB" onclick="tuBtn(this)" data-id="'+ item.team_member_id +'" data-name="'+ item.team_name +'" data-no="'+ item.menber_no +'">'+
+									'		<p class="deploy_img">'+
+									'			<img src="img/tuzi.png"/>'+
+									'		</p>'+	
+									'	</div>'+
+									'</div>';
+								}else{
+									deployHtml += '<div class="right tuA">'+
+									'		<p class="deploy_img">'+
+									'			<img src="'+ item.user_logo +'"/>'+
+									'		</p>'+
+									'		<p class="deploy_name">'+
+									'			<span>'+ item.user_nickname +'</span>'+
+									'			<img src="img/'+ (item.sex == 1 ? 'nan' : 'nv') +'.png"/>'+
+									'		</p>'+
+									'	</div>'+
+									'</div>';
+								}
+								
+							}
+							
+						});
+						deployHtml += '<div class="clearfix"></div>';
+						
+						
+						$(".deploy_all").html(deployHtml);
+						
+						
+						
+
+					}else{
+						alert(data.msg)
+					}
+					
+
+				}
+			});
+		}
+//			获取我的信息-头像-名字-性别
+			
+		function queryUserInfoByUserId() {
+			$.ajax({
+				type: "post",
+				url: httpUrl + "/api/v1.0/user/queryUserInfoByUserId",
+				data: {
+					user_token: token,
+				},
+				dataType: 'json',
+				async: true,
+				success: function(data) {
+					console.log(data)
+					if(data.code == 200){
+						user_logo = data.data.user_logo;
+						nick_name = data.data.nick_name;
+						tuSex = data.data.sex;
+						
+					}else{
+						alert(data.msg)
+					}
+				}
+			});
+		}	
+			
+			
+
+		
+		$(".deploy_title").click(function(){
+			if($(".deploy_all").css('display') == 'block'){
+				$(".deploy_all").css('display','none');
+			}else{
+				$(".deploy_all").css('display','block');
+			}
+			
+		})
+//		报名选座位
+		function tuBtn(tuB){
+			console.log(111)
+			$(".tuB").children('.deploy_img').children('img').attr('src','img/tuzi.png'); 
+			$(".tuB").children('.deploy_name').remove();
+
+			$(tuB).children('.deploy_img').children('img').attr('src',user_logo);    // 此时为自己头像
+			$(tuB).append('<p class="deploy_name"><span class="tuName">'+ nick_name +'</span><img src="img/'+ (tuSex == 1 ? 'nan' : 'nv') +'.png"/></p>');    // 此时为自己名字
+				
+			var data_id = $(tuB).attr('data-id');    //座位id
+			var data_name = $(tuB).attr('data-name');    //座位name-第几组
+			var data_no = $(tuB).attr('data-no');    //座位menber_no-  A or B
+			console.log(data_id);
+			console.log(data_name);
+			console.log(data_no);
+		}
+
+		
+		
+		
+		
+	</script>
+</html>

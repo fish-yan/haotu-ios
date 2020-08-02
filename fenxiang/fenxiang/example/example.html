@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>好兔羽毛球群英雄榜</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/example.css" />
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<div class='page'>
+			<div class='heroesList'>
+
+			<!--<div class='heroes_one'>
+					<div class='heroes_top'>
+						<div class='heroes_img'>
+							<img src="img/touxiang.png"/>
+						</div>
+						<div class='heroes_name'>爱丽丝羽毛球俱乐部</div>
+						<div class='heroes_hot'>
+							<text class='hot'>500</text>
+							<img src="img/honghuo1.png"/>
+						</div>
+					</div>
+					<div class='heroes_bom'>
+						<div class='heroes_rank'>1</div>
+						<div class='heroes_odds'>胜率: 100%</div>
+						<div class='clearfix'></div>
+					</div>
+				</div>-->
+				<!--	<div class='heroes_one' bindtap='heroesDetail'>
+					<div class='heroes_top'>
+						<div class='heroes_img'>
+							<img src="img/touxiang.png"/>
+						</div>
+						<div class='heroes_name'>爱丽丝羽毛球俱乐部</div>
+						<div class='heroes_hot'>
+							<text class='hot'>500</text>
+							<img src="img/honghuo1.png"/>
+						</div>
+					</div>
+					<div class='heroes_bom'>
+						<div class='heroes_rank'>1</div>
+						<div class='heroes_odds'>胜率: 100%</div>
+						<div class='clearfix'></div>
+					</div>
+				</div>-->
+
+			</div>
+			<!--<div class="" style="position: fixed;top: 0;left: 0;height: 50px;background: #007AFF;">
+				<input type="" name="tiaoyitiao" id="tiaoyitiao" value="" />
+				<button>揍你</button>
+			</div>-->
+			
+			
+		</div>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//			var token = "3dc2e136ad8e4d0ebf8998c0e3e45f08";
+			var token = getQueryString("token"); //这这是从安卓分享过来的链接截取  
+//			var latitude = '';
+//			var longitude = '';
+			var pageIndex = 1;
+			var pageSize =50;
+			
+
+			var rankSize = getQueryString("rankSize"); //这这是从安卓分享过来的链接截取  
+//			这是返回值  不可能超出总支
+//			var rankSize = 3; //控制住这个值 走哪跳哪----you弹框的话   输入值之后点击确定  执行scroll(rankSize)  改变的值是rankSize
+			var number = 0;
+			queryGroupRank();
+			function queryGroupRank(){
+				$.ajax({
+					type:"post",
+					url:httpUrl + "/api/v1.0/group/queryGroupRank",
+					data:{
+						user_token:token,
+						pageIndex:pageIndex,
+						pageSize:pageSize,
+					},
+					dataType: 'json',
+					async:true,
+					success: function(data){
+						console.log(data)
+						
+						if(data.code == 200){
+							var heroesHtml = '';
+								$.each(data.data, function(i,item) {
+									var rank =item.rank.substr(0, item.rank.length - 1);
+									rank =rank.slice(1);
+									heroesHtml += '<div class="heroes_one rank'+ rank  +'">'+
+												'		<div class="heroes_top">'+
+												'			<div class="heroes_img">'+
+												'				<img src="'+ item.img_url +'"/>'+
+												'			</div>'+
+												'			<div class="heroes_name">'+ item.group_name +'</div>'+
+												'			<div class="heroes_hot">'+
+												'				<text class="hot">'+ item.battle_number +'</text>'+
+												'				<img src="img/honghuo1.png"/>'+
+												'			</div>'+
+												'		</div>'+
+												'		<div class="heroes_bom">'+
+												'			<div class="heroes_rank">' + rank + '</div>'+
+												'			<div class="heroes_odds">胜率: '+ item.successRate +'</div>'+
+												'			<div class="clearfix"></div>'+
+												'		</div>'+
+												'	</div>';
+								});
+								$(".heroesList").html(heroesHtml);
+								number = data.data.length
+								console.log(number)
+								
+								scroll(rankSize);
+						}
+						
+//					rangtaguan
+						
+					}
+				});
+			}
+			
+			scroll = (target) => {
+//			    ev.preventDefault();
+			
+			    const scrollPart = document.querySelector('.rank' + target); // 目标节点class
+			    const top = scrollPart.getBoundingClientRect().top;
+			    const pageY = window.pageYOffset;
+			    const endPosition = top + pageY;
+			
+			    const startTime = +new Date();
+			    const duration = 500; //ms
+			
+			    function run() {
+			        const time = +new Date() - startTime;
+			
+			        window.scrollTo(0, pageY + top * (time / duration));
+			        run.timer = requestAnimationFrame(run);
+			
+			        if (time >= duration) {
+			            window.scrollTo(0, endPosition);
+			            cancelAnimationFrame(run.timer);
+			        }
+			    } 
+			
+			    requestAnimationFrame(run);
+			}
+			
+			
+			
+//			$("button").click(function(){
+//				console.log($("#tiaoyitiao").val())
+//				rankSize = $("#tiaoyitiao").val()
+//				console.log(number)
+//				if(number < rankSize){
+//					scroll(number);//测试
+//				}else{
+//					scroll(rankSize);//测试
+//				}
+//				
+//			})
+			
+		</script>
+	</body>
+
+</html>

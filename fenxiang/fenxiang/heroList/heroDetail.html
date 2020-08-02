@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/heroDetail.css" />
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="hero">
+			<div class="title">
+				<div class="title_center">
+					<div class="title_img">
+						<img src='img/touxiang.png'></img>
+					</div>
+					<div class="title_huo">
+						<img src="img/honghuo1.png" />
+					</div>
+					<div class="title_num">
+						<img src='img/kuang.png'></img>
+						<span>500</span>
+					</div>
+				</div>
+				<div class="title_name">
+					LIKING 24小时健身房
+				</div>
+			</div>
+
+			<div class='content'>
+				<div class="content_one">
+					<div class='content_bom'>
+						<div class='left_cen'>
+							<div class='left_cen_lef'>
+								<div class='left_cen_img'>
+									<img src='img/touxiang.png'></img>
+								</div>
+								<div class='left_cen_name'>好兔兔</div>
+							</div>
+							<div class='left_cen_rig'>
+								<div class='left_cen_img'>
+									<img src='img/touxiang.png'></img>
+								</div>
+								<div class='left_cen_name'>好兔兔</div>
+							</div>
+						</div>
+						<div class='center_cen'>
+							<div class='time_two'>
+								<span>2</span>
+								<span>：</span>
+								<span>0</span>
+							</div>
+							<div class='time_three'>好兔兔</div>
+						</div>
+						<div class='right_cen'>
+
+							<div class='right_cen_lef'>
+								<div class='right_cen_img'>
+									<img src='img/touxiang.png'></img>
+								</div>
+								<div class='right_cen_name'>好兔兔</div>
+							</div>
+							<div class='right_cen_rig'>
+								<div class='right_cen_img'>
+									<img src='img/touxiang.png'></img>
+								</div>
+								<div class='right_cen_name'>好兔兔</div>
+							</div>
+						</div>
+
+					</div>
+
+				</div>
+				
+
+			</div>
+			
+
+		</div>
+		
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var token = getQueryString("token"); //这这是从上一页截取的  
+			var activity_id = getQueryString("activity_id"); //这是从上一页截取的  
+			
+			
+			
+			
+			viewActivityMatchDetail();
+			function viewActivityMatchDetail(){
+				$.ajax({
+					type:"post",
+					url:httpUrl + "/api/v1.0/match/viewActivityMatchDetail",
+					data:{
+						user_token:token,
+						activity_id:activity_id,
+					},
+					async:true,
+					success:function (data){
+						console.log(data)
+						if(data.code == 200){
+							$(".title_img img").attr('src',data.data.basicInfo.groupLogo)
+							$(".title_name").text(data.data.basicInfo.groupName)
+							$(".title_num span").text(data.data.basicInfo.battleNumber)
+							
+							
+							var contentList = data.data.matchList;
+							var contentListHtml = '';
+					
+							if(contentList != '' || contentList.length != 0){
+								$.each(contentList, function(i,item) {
+									contentListHtml += '<div class="content_one">'+
+										'					<div class="content_bom">'+
+										'						<div class="left_cen">'+
+										'							<div class="left_cen_lef">'+
+										'								<div class="left_cen_img">'+
+										'									<img src="'+ item.team_a_member_a_logo +'"></img>'+
+										'								</div>'+
+										'								<div class="left_cen_name">'+ item.team_a_member_a_nickname +'</div>'+
+										'							</div>'+
+										'							<div class="left_cen_rig">'+
+										'								<div class="left_cen_img">'+
+										'									<img src="'+ item.team_a_member_b_logo +'"></img>'+
+										'								</div>'+
+										'								<div class="left_cen_name">'+ item.team_a_member_b_nickname +'</div>'+
+										'							</div>'+
+										'						</div>'+
+										'						<div class="center_cen">'+
+										'							<div class="time_two">'+
+										'								<span>'+ item.team_a_score +'</span>'+
+										'								<span>:</span>'+
+										'								<span>'+ item.team_b_score +'</span>'+
+										'							</div>'+
+										
+										'						</div>'+
+										'						<div class="right_cen">'+
+										'							<div class="right_cen_lef">'+
+										'								<div class="right_cen_img">'+
+										'									<img src="'+ item.team_b_member_a_logo +'"></img>'+
+										'								</div>'+
+										'								<div class="right_cen_name">'+ item.team_b_member_a_nickname +'</div>'+
+										'							</div>'+
+										'							<div class="right_cen_rig">'+
+										'								<div class="right_cen_img">'+
+										'									<img src="'+ item.team_b_member_b_logo +'"></img>'+
+										'								</div>'+
+										'								<div class="right_cen_name">'+ item.team_b_member_b_nickname +'</div>'+
+										'							</div>'+
+										'						</div>'+											
+										'					</div>	'+
+										'				</div>';
+								});
+								$(".content").html(contentListHtml)
+								
+							}else{
+								$(".content").html('<p style="text-align: center;line-height: 50px;">暂无比赛数据</p>')
+							}
+						}				
+						
+					}
+				});
+			}
+			
+		</script>
+		
+	</body>
+
+</html>

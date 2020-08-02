@@ -1,0 +1,157 @@
+/* pages/heroesDetail/heroesDetail.wxss */
+
+.title{
+	text-align: center;
+	background: #fff;
+	padding-top: 1rem;
+	padding-bottom: 1.2rem;
+
+}
+.title .title_center{
+	margin:0 auto;
+	width: 7.6rem;
+	height: 7.3rem;
+	padding-top:0.3rem;
+	border-radius: 100%;
+	background:linear-gradient(90deg,rgba(255,255,255,1) 70%,rgba(50,170,255,1) 100%);
+	position: relative;
+}
+.title .title_center .title_img{
+	width: 6.7rem;
+	height: 6.7rem;
+	border: 1px solid rgba(236,236,236,1);
+	background: #fff;
+	border-radius: 50%;
+	margin: 0 0.3rem;
+}
+.title .title_center .title_img img{
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  display:0;
+
+}
+.title .title_center .title_huo{
+	width: 1.5rem;
+	height: 1.5rem;
+	position: absolute;
+	border-radius: 50%;
+	right: -1.5rem;
+	top: 3rem;
+}
+.title .title_center .title_huo img{
+	width: 100%;
+	height: 100%;
+}
+.title .title_center .title_num{
+	width: 5rem;
+	height: 1.7rem;
+	position: absolute;
+	right:-6.8rem;
+	top: 3.3rem;
+	color: #32AAFF;
+	font-size: 1.5rem;
+	text-indent: 0.5rem;
+	/*text-align: center;*/
+	line-height: 1.8rem;
+}
+.title .title_center .title_num img{
+  position: absolute;
+  top: 0.05rem;
+  left: 0.05rem;
+  width: 5rem;
+  height: 1.7rem;
+}
+.title .title_name{
+	color: #2B2B2B;
+	font-size: 1.8rem;
+  font-family:PingFang SC;
+	font-weight: bold;
+	text-align: center;
+	margin: 0.7rem 0 0;
+}
+
+.heroesList{
+  width: 96%;
+  margin: 0 auto;
+   border-radius: 0.3rem;
+}
+
+.heroesList .heroes_one{
+  margin: 0.5rem 0;
+  background: #fff;
+  /* padding-bottom: 28rem; */
+  height: 13.6rem;
+}
+.heroesList .heroes_one .heroes_top{
+  height: 6.8rem;
+  border-bottom:0.05rem solid #F4F5F5;
+}
+.heroesList .heroes_one .heroes_top .heroes_img{
+  width: 4.9rem;
+  height: 4.9rem;
+  border-radius: 50%;
+  border:0.05rem solid rgba(236,236,236,1);
+  box-shadow:0px 0.15rem 0.3rem rgba(0,0,0,0.16);
+  float: left;
+  margin: 0.75rem 1rem 0;
+}
+.heroesList .heroes_one .heroes_top .heroes_img img{
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+.heroesList .heroes_one .heroes_top .heroes_name{
+  font-size:1.8rem;
+  font-family:PingFang SC;
+  font-weight:bold;
+  line-height:6.8rem;
+  color:rgba(43,43,43,1);
+  float: left;
+}
+.heroesList .heroes_one .heroes_top .heroes_hot{
+  font-size:1.4rem;
+  font-family:PingFang SC;
+  font-weight:500;
+  float: right; 
+  line-height: 6.8rem;
+  color: #FF5151;
+  margin-right: 0.8rem;
+}
+.heroesList .heroes_one .heroes_top .heroes_hot .hot{
+	float: left;
+}
+.heroesList .heroes_one .heroes_top .heroes_hot .hot_img{
+	float: right;
+}
+.heroesList .heroes_one .heroes_top .heroes_hot .hot_img img{
+  width: 1.7rem;
+  height: 1.7rem;
+  margin: 2.5rem 0.25rem;
+
+}
+/* .heroesList .heroes_one .heroes_bom  */
+.heroesList .heroes_one .heroes_bom .location {
+  width:90%;
+  padding-top: 0.5rem;
+  height:2rem;
+}
+.heroesList .heroes_one .heroes_bom .location img{
+  width: 1.4rem;
+  height: 1.4rem;
+  margin: 0 0.9rem 0 1rem;
+  display: inline-block;
+  vertical-align: middle;
+}
+.heroesList .heroes_one .heroes_bom .location span{
+  font-family:PingFang SC;
+  font-weight:500;
+  line-height: 2rem;
+  color: #B1B1B1;
+  font-size: 1.4rem;
+}
+.heroesList .heroes_one .heroes_bom .location span.right{
+  float: right;
+  margin-right: 0.9rem;
+  margin-top: 0.25rem;
+}

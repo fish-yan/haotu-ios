@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>活动信息</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/activityMsg.css"/>
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css"/>
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div class="activity">
+			<!--活动名称-->
+			<div class="activity_name">
+				<p class="name_first">活动名称</p>
+				<p class="name_last">--</p>
+				<p class="name_img"><img src="img/pkkk.png"/></p>
+			</div>
+			<!--活动时间-->
+			<div class="activity_time">
+				<p class="time_first">活动时间</p>
+				<p class="time_last">--- </p>
+				<p class="time_cen">时长<span class="time">--</span>小时</p>
+				
+			</div>
+			<!--活动费用-->
+			<div class="activity_cost">
+				<p class="cost_first">活动费用</p>
+				<div class="cost_last">
+					<div class="zong">
+						<div class="money"><span>游客</span><span class="you">--</span></div>
+						<div>/人次</div>
+					</div>
+					<div class="zong">
+						<div class="money"><span>会员</span><span class="hui">--</span></div>
+						<div>/人次</div>
+					</div>
+
+					<div class="preferential">(女生可优惠)</div>
+				</div>
+			</div>
+			<!--活动组织者-->
+			<div class="activity_people">
+				<p class="people_first">组织者</p>
+				<div class="people_last">
+					<span class="people">--</span>
+					&nbsp;
+					<span class="phone">--</span>
+					<div class="pep_img">
+						<a href="" style="width: 100%;height: 100%;display: block;">
+							<img src="img/phone.png"/>
+						</a>
+					</div>
+				</div>
+			</div>
+			<!--活动地址-->
+			<div class="activity_address">
+				<p class="address_first">活动地址</p>
+				<div class="address_last navigation">
+					<p><span class="address">--</span>
+					(<span class="address_name">--</span>)
+					</p>
+					<div class="add_img">
+						<img src="img/ding.png"/>
+					</div>
+				</div>
+			</div>
+		
+			<!--报名情况-->
+			<div class="group_members">
+				<div class="members_left">
+					<img src="img/shuangren.png"/>
+				</div>
+				<div class="members_cen">
+					<!--<div><img src="img/Avatar sample 271.png"/></div>-->
+					
+				</div>
+				<div class="members_spa">
+					<p class="memone">--</p><p>/</p>
+					<p class="memtwo">--</p>
+					
+				</div>
+				<div class="members_right">
+					<img src="img/rig.png"/>
+				</div>
+			</div>
+			<!--活动介绍-->
+			
+			<div class="introduce">
+				<div class="introduce_top">
+					活动介绍
+				</div>
+				<div class="introduce_bom">
+					<div class="swiper-container">
+					    <div class="swiper-wrapper">
+					      <!--<div class="swiper-slide"><img src="img/xinxi.png"/></div>-->
+					      <!--<div class="swiper-slide">Slide 2</div>
+					      <div class="swiper-slide">Slide 3</div>-->
+					    </div>
+					    <!-- Add Pagination -->
+					    <div class="swiper-pagination"></div>
+					    <!-- Add Arrows -->
+					    <!--<div class="swiper-button-next"></div>
+					    <div class="swiper-button-prev"></div>-->
+					  </div>
+					<p>--</p> 
+				</div>
+			</div>
+			
+		</div>
+		
+		<!--立即报名————未报名样式-->
+		<div class="sign">
+			<div class="sign_right">
+				<p class="cutoff">报名截止还有<span id="clock">---</span></p>
+				<div class="cut_bom">
+					<div class="sign_img" id="btn_img">
+						<img id="picts" src="img/tuoyuan.png"/>
+					</div>
+					<div class="agree">我已同意俱乐部活动<span class="tiaokuan">《活动条款》</span></div>
+				</div>
+			</div>
+			<div class="sign_left">
+				<button id="btn">立即报名</button>
+			</div>
+		</div>
+		<!--条款弹框-->
+		<div class="tiaokuan_pup">
+			<div class="tiao">
+				<p>俱乐部活动《免责协议》</p>
+				<p>第一条 本次活动（包括但不限于羽毛球运动）具有潜在的危险性和不可预知性，参加者须对自身的安全和行为负责。</p>
+				<p>第二条 报名参加本次活动者应当对自身的身体条件进行全面了解，并科学评估是否适宜参加本次活动。</p>
+				<p>第三条 报名参加本次活动者视为年满18周岁的完全民事行为能力人，未满18周岁的限制民事行为能力人和无民事行为能力人应当在其监护人的陪同下参加。</p>
+				<p>第四条 参加者在本次活动中（包括来往活动场地的途中）遭受人身损害或造成他人人身损害的，由侵害人或参加者承担法律后果。</p>
+				<p>第五条 参加者应当妥善管理其财物，不应轻信他人，包括其他活动参加者。俱乐部会长及组织者不承担保管参加者财物的义务，若发生财物失窃、损毁等情形，其损失由参加者自行承担。</p>
+				<p>第六条 俱乐部会长及组织者对上述条款规定的人身和财产损失概不承担任何法律责任。</p>
+				<p>第七条 本次活动的报名者已知晓并理解上述条款。</p>
+
+
+
+			</div>
+			
+		</div>
+		<!--自定义弹框--绑定手机号-->
+		<div class="phone_tan">
+			<div class="tan_main">
+				绑定手机号才可以报名俱乐部活动哦~
+			</div>
+			<div class="tan_btn">
+				<button class="btn_give">残忍放弃</button>
+				<button class="btn_confirm">立即绑定</button>
+			</div>
+		</div>
+		<!--自定义弹框--申请加群-->
+		<div class="group_tan">
+			<div class="tan_main">
+				本活动需要先申请加入俱乐部才可以报名哦~
+			</div>
+			<div class="tan_btn">
+				<button class="btn_give">残忍放弃</button>
+				<button class="btn_confirm">立即申请</button>
+			</div>
+		</div>
+		
+		
+		<!--选择地图导航-->
+		<div class="mask"></div>
+		<div class="map_select">
+			<p onclick="baidu()">百度地图</p>
+			<p onclick="gaode()" class="gaode">高德地图</p>
+			<p onclick="tengxun()">腾讯地图</p>
+		</div>
+
+		<!--弹框-->
+		<div class="alert"></div>
+		
+		<!--下载app二维码弹框-->
+		<div class="erCode">
+			<div class="erCode_center">
+				<img class="android" src="img/anzhuo.jpg"/>
+				<p>安卓下载</p>
+				<img class="ios" src="img/erwei.png"/>
+				<p>苹果下载</p>
+				
+			</div>
+		</div>
+		
+		<!--图片查看大图-->
+		<div class="erCode_img">
+				<img src="img/111.jpg"/>
+		</div>
+		
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			var token = $.cookie("login_token");
+			var group_id =''; //这是从上一页截取的  
+			var group_activity_id = getQueryString("group_activity_id"); //这是从上一页截取的  
+//			var group_activity_id = "16"; //181-188
+			var login_type = 0;
+			var groupType = getQueryString("groupType"); //判断是否是企业群-是企业群先判断是否已经入群  是的话可以直接报名活动-否则需要先入群 审核通过之后才能报名活动
+			
+			
+//			这些不要动
+			var latitude = '';
+			var longitude = '';
+			var latitude_end = '';
+			var longitude_end = '';
+			var end_name = '';
+			var endTime = ''; //默认截止时间
+			
+			if(token == undefined) {
+			//				无值-从连接上面截取token;此时假数据
+			    token = getQueryString("token"); //这这是从上一页截取的
+//				token = '01f7fca2289e41ddb6c2a235862288fc';
+				getActivityDetail(0);
+				login_type = 0;
+	
+				
+			} else {
+				//				有值
+				console.log('==========')
+				console.log(token);
+	
+				getActivityDetail(1);
+				login_type = 1;
+			}
+			
+
+			
+			var is_join_group = ''; //判断是否已经入群
+
+			
+			
+			function getActivityDetail(type) {
+				$.ajax({
+					type: "post",
+					url: httpUrl + "/api/v1.0/activity/getActivityDetail",
+					data: {
+						group_activity_id: group_activity_id,
+						user_token: token,
+					},
+					dataType: 'json',
+					async: true,
+					success: function(data) {
+						console.log(data)
+						if(data.code == 200) {
+							$(".name_last").text(data.data.activity_name)
+							$(".time_last").text(data.data.start_date_h5)
+							$(".time_cen .time").text(data.data.duration)
+							
+							$(".cost_last .you").text(data.data.m_visitor_amount)
+							$(".cost_last .hui").text(data.data.m_member_amount)
+							
+							$(".people_last .people").text(data.data.owner_name)
+							
+							$(".people_last .phone").text(data.data.activity_phone_no)
+							$(".people_last .pep_img a").attr('href', 'tel:' + data.data.activity_phone_no)
+//
+							$(".address_last .address").text(data.data.activity_address)
+							latitude_end = data.data.latitude;
+							longitude_end = data.data.longitude;
+							end_name = data.data.activity_address;
+							$(".address_last .address_name").text(data.data.venueName)
+							
+							
+							$(".members_spa .memtwo").text(data.data.sign_up_no);
+							$(".members_spa .memone").text(data.data.total_no);
+							
+							$(".introduce_bom p").text(data.data.remark)
+							
+							
+							
+							//轮播
+							var swiperHtml = ''; 
+							if(data.data.remarkImg != null){
+								for(var i = 0; i < data.data.remarkImg.length; i++) {
+									swiperHtml += '<div class="swiper-slide"><img src="' + data.data.remarkImg[i] + '" /></div>';
+								}
+								$(".swiper-wrapper").html(swiperHtml);
+	
+								 var swiper = new Swiper('.swiper-container', {
+								      pagination: {
+								        el: '.swiper-pagination',
+								        type: 'fraction',
+								      },
+									  loop: true,
+									  autoplay: {
+									  delay: 3000, //1秒切换一次
+									},
+							    });
+							}else{
+								$(".swiper-container").css("display","none");
+								
+							}
+							
+							
+							
+							
+							
+							if(data.data.isPk == 0){
+								$(".activity_name .name_img").hide();
+							}else{
+								$(".activity_name .name_img").show();
+							}
+							
+							
+							if(data.data.is_w_discount == '1'){
+								$(".preferential").css("display","block")
+							}else{
+								$(".preferential").css("display","none")
+								
+							}
+							
+//
+							is_join_group = data.data.is_join_group;
+							groupType = data.data.groupType;
+							group_id = data.data.group_id;
+							//						这里是群成员照片循环
+							var members_cen = ''; //首先是一个空字符串
+
+							for(var i = 0; i < data.data.sign_up_list.length; i++) {
+								members_cen += '<div><img src="' + data.data.sign_up_list[i].url + '" /></div>';
+							}
+							$(".members_cen").html(members_cen);
+
+							endTime = data.data.start_date;
+
+							countdown()
+
+//							//						判断活动时间有没有截止
+//								如果没有报名且还有机会报名
+							if(type == 0){
+								change_pic();
+							}else{
+								if(data.data.is_sign_no == 0) {
+//							未报名
+									change_pic();
+								} else if(data.data.is_sign_no == 1) {
+									alert('您已经报过名了！')
+									$("#picts").attr('src','img/neiquan.png');
+									$("#btn").attr('disabled','disabled');
+									setTimeout(function() {
+										$(".alert").css("display", 'none')
+									},1000)
+									//							已经报名
+									//							去除点击事件    	
+									
+								}
+							}
+							
+						} else {
+							if(data.code == 300){
+								alert(data.msg)
+								setTimeout(function(){
+									
+									window.location = "regist.html";
+								},1000)
+							}else{
+								alert(data.msg)
+							}
+							
+						}
+
+					}
+				});
+			}
+
+			//查看报名人数列表显示
+			$(".group_members").click(function(){
+				if($(".members_spa .memtwo").text() == 0){
+					alert('暂时没人报名')
+					return;
+				}else{
+					window.location = "msglist.html?token=" + token + '&activity_id=' + group_activity_id;
+				}
+			})
+
+			//点击同意活动条款
+			function change_pic(){
+	            var button = document.getElementById("btn_img");
+	
+	            var picts = document.getElementById("picts");
+	
+	            button.onclick = function(){
+	                if(picts.getAttribute("src",2) == "img/tuoyuan.png"){
+	
+	                    picts.setAttribute("src","img/neiquan.png");
+	
+	                }else{
+	
+	                    picts.setAttribute("src","img/tuoyuan.png");
+	
+	                };
+	            }
+	        }
+//	        change_pic();
+
+
+			//			点击立即报名获取本地绑定的token
+			$("#btn").click(function() {
+				if(login_type == 0){
+					$(".mask").css('display', 'block');
+					$(".phone_tan").css('display', 'block');
+					return;
+	//				去登陆
+				}
+				
+				if($(".members_spa .memtwo").text() == $(".members_spa .memone").text()){
+					alert('该活动报名人数已满，请选择其他活动~')
+					return;
+				}
+
+//					此时判断是否是企业群分享出来的活动
+				if(groupType == 4) {
+//					是企业群分享出来的活动
+//					判断是否已经入群
+					if(is_join_group == 1) {
+//					可直接报名--此时-跳转到支付页面
+//							判断是否同意活动条款
+						if($("#picts").attr('src') == 'img/neiquan.png'){
+							$('.erCode').css('display','block')
+//							window.location = "signUp.html?token=" + token + '&activity_id=' + group_activity_id;
+						}else{
+							alert('请先同意《活动条款》')
+						}
+						
+					} else {
+//							//							现在去申请入群
+						$(".mask").css('display', 'block');
+						$(".group_tan").css('display', 'block');
+					}
+				} else {
+					if($("#picts").attr('src') == 'img/neiquan.png'){
+						$('.erCode').css('display','block')
+//						window.location = "signUp.html?token=" + token + '&activity_id=' + group_activity_id;
+					}else{
+						alert('请先同意《活动条款》')
+					}
+					
+				}
+
+			})
+
+			$(".phone_tan .btn_confirm").click(function() {
+				$(".mask").css('display', 'none');
+				$(".phone_tan").css('display', 'none');
+				//				此时登录绑定
+				window.location = "regist.html"
+			})
+			$(".phone_tan .btn_give").click(function() {
+				//				放弃登录
+				$(".mask").css('display', 'none');
+				$(".phone_tan").css('display', 'none');
+			})
+
+			$(".group_tan .btn_confirm").click(function() {
+				$(".mask").css('display', 'none');
+				$(".group_tan").css('display', 'none');
+				//				此时去加入企业群
+				window.history.back(-1);
+			})
+			$(".group_tan .btn_give").click(function() {
+				//				放弃报名
+				$(".mask").css('display', 'none');
+				$(".group_tan").css('display', 'none');
+			})
+			//			查看已报名人员
+			$(".arrow").click(function() {
+				window.location = "groupMembers.html?token=" + token + '&activity_id=' + group_activity_id + '&type=' + 2;
+			})
+
+			//			唤起导航列表
+			$(".navigation .add_img").click(function() {
+				$('.mask').css('display', 'block');
+				$('.map_select').css('display', 'block');
+				
+				//			获取手机当前定位
+				getPosition();
+
+			})
+			
+
+			function getPosition() {
+
+				//判断浏览器是否支持HTML5 定位
+
+				if(window.navigator.geolocation) {
+					console.log(1)　　　　　
+					navigator.geolocation.getCurrentPosition(successfulCallback, failCallback)　　　　　
+				} else {　　　　　　
+					alert("你的浏览器不能使用HTML5定位")　　　　
+				}　　
+			}　　
+			function successfulCallback(position) {　　　
+				console.log(position)
+				latitude = position.coords.latitude;　　
+				longitude = position.coords.longitude;　
+			}　
+			function failCallback(error) {　　　　
+				var text;　　　　
+				switch(error.code) {　　　　　　　　
+					case error.PERMISSION_DENIED:
+
+						text = "用户拒绝对获取地理位置的请求。";　　　　　　
+						break;　　　　　　
+					case error.POSITION_UNAVAILABLE:
+
+						text = "位置信息是不可用的。";　　　　　　　
+						break;　　　
+					case error.TIMEOUT:
+
+						text = "请求用户地理位置超时。";　　　　　　　
+						break;　　　　
+					case error.UNKNOWN_ERROR:
+
+						text = "未知错误。";　　　　　　　　
+						break;　　　　　　
+				}
+
+				　　　　　　
+			}
+
+			　　
+
+			//		百度地图导航
+			function baidu() {
+				$('.mask').css('display', 'none');
+				$('.map_select').css('display', 'none');
+				console.log(end_name);
+				window.location.href = 'http://api.map.baidu.com/direction?origin=latlng:' + latitude + ',' + longitude + '|name:我的位置&destination=latlng:' + latitude_end + ',' + longitude_end + '|' + end_name + '&mode=driving&output=html&coord_type=bd09ll&src=webapp.baidu.openAPIdemo';
+
+			}
+
+			//		高德地图导航
+			function gaode() {
+				$('.mask').css('display', 'none');
+				$('.map_select').css('display', 'none');
+				window.location.href = 'http://uri.amap.com/navigation?from=' + longitude + ',' + latitude + ',我的位置&to=' + longitude_end + ',' + latitude_end + ',' + end_name + '&via=116.402796,39.936915,midwaypoint&mode=car&policy=1&src=mypage&coordinate=gaode&callnative=0';
+
+			}
+
+			//		腾讯地图导航
+			function tengxun() {
+				$('.mask').css('display', 'none');
+				$('.map_select').css('display', 'none');
+				window.location.href = 'https://apis.map.qq.com/uri/v1/routeplan?type=drive&from=我的位置&fromcoord=' + latitude + ',' + longitude + '&to=' + end_name + '&tocoord=' + latitude_end + ',' + longitude_end + '&policy=0&referer=OB4BZ-D4W3U-B7VVO-4PJWW-6TKDJ-WPB77';
+
+			}
+
+			$('.mask').click(function() {
+				$('.mask').css('display', 'none');
+				$('.map_select').css('display', 'none');
+				$('.tiaokuan_pup').css('display','none')
+				
+			})
+			
+			$('.tiaokuan').click(function(){
+				$('.tiaokuan_pup').css('display','block')
+				$('.mask').css('display','block')
+			})
+
+
+			function countdown() {
+				//							var end = new Date(2019, 6, 14, 3);
+				var end = new Date(endTime.replace(/\-/g, "/"));
+				var now = new Date();
+				var m = Math.round((end - now) / 1000);
+				var day = parseInt(m / 24 / 3600);
+				var hours = parseInt((m % (3600 * 24)) / 3600);
+				var minutes = parseInt((m % 3600) / 60);
+				var seconds = m % 60;
+
+				if(m < 0) {
+					document.getElementById("clock").innerHTML = '0';
+					//					报名时间截止
+					$(".cutoff").text('活动报名已截止');
+					$(".cutoff").css('color', 'red')
+					$("#btn").attr('disabled','disabled');
+
+					return;
+				}
+				document.getElementById("clock").innerHTML = day + "天" + hours + "时" + minutes + "分" + seconds +
+					"秒";
+				setTimeout('countdown()', 1000);
+			}
+			
+			
+			$(".erCode .erCode_center img").click(function(){
+				var Src = $(this).attr('src')
+				$(".erCode_img img").attr('src',Src)
+				$(".erCode_img").css('display','block')
+			})
+			$(".erCode_img").click(function(){
+				$(this).css('display','none')
+			})
+
+		</script>
+		
+	</body>
+
+</html>

@@ -1,0 +1,229 @@
+.active_title{
+	height: 14rem;
+	background: #fff;
+}
+.active_title .active_left{
+	float: left;
+	width: 39%;
+	height: 100%;
+	border-right:1px solid #e5e5e5;
+	font-weight: bold;
+}
+.active_title .active_left .time_time{
+	padding-top: 2.5rem;
+	color: #32AAFF;
+	font-size: 4rem;
+	text-align: center;
+}
+.active_title .active_left .time_date{
+	color: #2B2B2B;
+	font-size: 2rem;
+	text-align: center;
+}
+.active_title .active_right{
+	float: right;
+	width: 60%;
+	height: 100%;
+}
+.active_title .active_right .active_name{
+	color: #2B2B2B;
+	font-size: 1.8rem;
+	font-weight: bold;
+	padding-top: 2rem;
+	margin-left: 1.8rem;
+	margin-bottom: 1.4rem;
+}
+.active_title .active_right .active_address .img{
+	width: 1.4rem;
+	height: 1.4rem;
+	/*float: left;*/
+	margin-left: 1.8rem;
+	vertical-align: middle;
+	display: inline-block;
+}
+.active_title .active_right .active_address .address{
+	vertical-align: middle;
+	display: inline-block;
+	/*float: left;*/
+	width: 10rem;
+	font-size: 1.4rem;
+	margin-left: 0.2rem;
+}
+.active_title .active_right .active_per{
+	margin-top: 0.5rem;
+}
+.active_title .active_right .active_per .img{
+	width: 1.4rem;
+	height: 1.4rem;
+	/*float: left;*/
+	margin-left: 1.8rem;
+	vertical-align: middle;
+	display: inline-block;
+}
+.active_title .active_right .active_per .name{
+	height:2rem;
+	/*float: left;*/
+	vertical-align: middle;
+	display: inline-block;
+	font-size: 1.4rem;
+	margin-left: 0.2rem;
+}
+
+
+.active_deploy{
+	background: #fff;
+	margin: 0.5rem 0;
+}
+.active_deploy .deploy_title{
+	font-size: 1.8rem;
+	color: #2B2B2B;
+	line-height: 5rem;
+	height: 5rem;
+}
+.active_deploy .deploy_title span{
+	margin-left: 1rem;
+	font-weight: 600;
+}
+.active_deploy .deploy_title img{
+	float: right;
+	width: 1.3rem;
+	height: 1.3rem;
+	margin: 2rem 1rem 0 0;
+}
+.active_deploy .deploy_all{
+	display: none;
+}
+.active_deploy .deploy_all .deploy_one{
+	float: left;
+	width: 50%;
+	padding: 1rem 0;
+	height: 6.7rem;
+}
+.active_deploy .deploy_all .deploy_one div{
+	display: inline-block;
+	vertical-align: top;
+}
+.active_deploy .deploy_all .deploy_one div.left{
+	width: 35%;
+}
+.active_deploy .deploy_all .deploy_one div.center{
+	width: 20%;
+	text-align: center;
+	line-height: 4.5rem;
+	color: #4B4B4B;
+	font-size: 1.2rem;
+}
+.active_deploy .deploy_all .deploy_one div.right{
+	width: 35%;
+}
+.active_deploy .deploy_all .deploy_one .deploy_img img{
+	margin: 0 auto;
+	/*width: 100%;*/
+	height: 4rem;
+	width: 4rem;
+	border-radius: 50%;
+}
+.active_deploy .deploy_all .deploy_one .deploy_img{
+	/*height: 4.5rem;*/
+}
+.active_deploy .deploy_all .deploy_one .deploy_name{
+	text-align: center;
+	line-height: 2.2rem;
+}
+.active_deploy .deploy_all .deploy_one .deploy_name span{
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 1.2rem;
+	color: #4B4B4B;
+	overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 72%;
+}
+.active_deploy .deploy_all .deploy_one .deploy_name img{
+	display: inline-block;
+	vertical-align: middle;
+	width: 1.2rem;
+	height: 1.2rem;
+}
+
+
+.active_pay{
+	background: #fff;
+}
+.active_pay .pay_title{
+	font-size: 1.8rem;
+	color: #2B2B2B;
+	line-height: 5rem;
+	height: 5rem;
+	background: #F4F5F5;
+}
+.active_pay .pay_title span{
+	margin-left: 1rem;
+	font-weight: 600;
+}
+.active_pay .pay_all .pay_wx{
+	width: 100%;
+	height: 6.5rem;
+	background:rgba(255,255,255,1);
+	border-bottom: 0.05rem solid #E6E6E6;
+	/*height: 6.5rem;
+	*/
+}
+.active_pay .pay_all .pay_wx div{
+	float: left;
+	width: 15%;
+	height: 100%;
+}
+.active_pay .pay_all .pay_wx div img{
+	width: 1.6rem;
+	height: 1.6rem;
+	margin: 2.5rem 20%;
+}
+.active_pay .pay_all .pay_wx span{
+	/*display: inline-block;
+	vertical-align: middle;*/
+	font-size: 1.8rem;
+	font-weight: 600;
+	color: #2B2B2B;
+	line-height: 6.5rem;
+}
+
+
+.pay_money{
+	width: 100%;
+	height: 5rem;
+	background: #fff;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+}
+.pay_money .pay_left{
+	float: left;
+	width: 60%;
+	line-height: 5rem;
+}
+.pay_money .pay_left .one{
+	color: #2B2B2B;
+	font-size: 1.5rem;
+	margin-left: 1rem;
+	font-weight: 600;
+}
+.pay_money .pay_left .two{
+	color: #FF5151;
+	font-size: 2rem;
+	font-weight: 600;
+}
+.pay_money .pay_left .three{
+	color: #32AAFF;
+	font-size: 1.5rem;
+}
+.pay_money .pay_btn{
+	width: 40%;
+	float: right;
+	background: #32AAFF;
+	color: #fff;
+	font-size: 1.8rem;
+	line-height: 5rem;
+	text-align: center;
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		
+		<title>英雄榜比赛展现详情</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/heroesList.css"/>
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<div class='page'>
+			<div class="title">
+				<div class="title_center">
+					<div class="title_img">
+						<img src='img/touxiang.png'></img>
+					</div>
+					<div class="title_huo">
+						<img src="img/lanhuo.png"/>
+					</div>
+					<div class="title_num">
+						<img src='img/kuang.png'></img>
+						<span>500</span>
+					</div>
+				</div>
+				<div class="title_name">
+					LIKING 24小时健身房
+				</div>
+			</div>
+
+			<div class='heroesList'>
+				<!--<div class='heroes_one' bindtap='activityDetail'>
+					<div class='heroes_top'>
+						<div class='heroes_img'>
+							<img src='img/touxiang.png'></img>
+						</div>
+						<div class='heroes_name'>爱丽丝羽毛球俱乐部</div>
+						<div class='heroes_hot'>
+							<div class='hot'><span class="group_a_win_num">--</span>比<span class="group_b_win_num">--</span></div>
+							<div class="hot_img"><img src='img/sheng.png'></img></div>
+							
+						</div>
+					</div>
+					<div class='heroes_bom'>
+						<div class='location'>
+							<img src='img/dingwei.png'></img>
+							<span>地点：</span>
+							<span>--</span>
+						</div>
+						<div class='location'>
+							<img src='img/time.png'></img>
+							<span>时间：</span>
+							
+							<span><span class="start_time">--</span>-<span class="end_time">--</span></span>
+						</div>
+					</div>
+				</div>-->
+			</div>
+
+		</div>
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var token = getQueryString("token"); //这这是从安卓分享过来的链接截取  
+			var groupId = getQueryString("groupId"); //这这是从安卓分享过来的链接截取  
+//			目前用下面的假数据
+//			var token = "01f7fca2289e41ddb6c2a235862288fc";
+//			var groupId = 91;
+
+			
+			
+			viewGroupById();
+			queryPKInfoHistory();
+			
+			function viewGroupById(){
+				$.ajax({
+					type:"post",
+					url:httpUrl + "/api/v1.0/group/viewGroupById",
+					data:{
+						user_token:token,
+						group_id:groupId,
+					},
+					async:true,
+					success:function(data){
+						console.log(data)
+						if(data.code == 200){
+							$(".title_name").text(data.data.group_name)
+							$(".title_num span").text(data.data.battleNumber)
+							$(".title_img img").attr('src',data.data.group_logo)
+							
+							
+							
+						}
+					}
+				});
+			}
+			
+			function queryPKInfoHistory(){
+				$.ajax({
+					type:"post",
+					url:httpUrl + "/api/v1.0/pkinfo/queryPKInfoHistory",
+					data:{
+						user_token:token,
+						group_id:groupId,
+					},
+					async:true,
+					success:function (data){
+						console.log(data)
+						if(data.code == 200){
+
+							
+							
+							if(data.data.length != 0 || data.data != ''){	
+								var heroesHtml = '';
+								$.each(data.data, function(i,item) {
+//									截取时间时分；								
+									
+									var time_start = item.start_time;
+									var timearr_start = time_start.replace(" ", ":").replace(/\:/g, "-").split("-");
+									let timestr_start = timearr_start[3] + ":" + timearr_start[4];
+									
+									var time_end = item.end_time
+									var timearr_end = time_end.replace(" ", ":").replace(/\:/g, "-").split("-");
+									let timestr_end = timearr_end[3] + ":" + timearr_end[4];
+									heroesHtml += '<div class="heroes_one" onclick="activityDetail('+ item.activity_id +')">'+
+										'			<div class="heroes_top">'+
+										'				<div class="heroes_img">'+
+										'					<img src="'+ item.groupLogo +'"></img>'+
+										'				</div>'+
+										'				<div class="heroes_name">'+ item.pk_activity_name +'</div>'+
+										'				<div class="heroes_hot">'+
+										'					<div class="hot"><span class="group_a_win_num">'+ item.group_a_win_num +'</span>比<span class="group_b_win_num">'+ item.group_b_win_num +'</span></div>'+
+										'					<div class="hot_img"><img src="img/'+ (item.isSuccess == 0 ? 'bai' : 'sheng') +'.png"></img></div>'+
+										'				</div>'+
+										'			</div>'+
+										'			<div class="heroes_bom">'+
+										'				<div class="location">'+
+										'					<img src="img/dingwei.png"></img>'+
+										'					<span>地点：</span>'+
+										
+										'					<span>'+ item.activity_address +'</span>'+
+										'				</div>'+
+										'				<div class="location">'+
+										'					<img src="img/time.png"></img>'+
+										'					<span>时间：</span>'+
+										
+										'					<span><span class="start_time">'+ timestr_start +'</span>-<span class="end_time">'+ timestr_end +'</span></span>'+
+										'				</div>'+
+										'			</div>'+
+										'		</div>';
+								});
+								$(".heroesList").html(heroesHtml);
+							}else{
+								$(".heroesList").html('还没有比赛记录哦~');
+							}
+							
+						}
+						
+						
+					}
+				});
+			}
+			
+			function activityDetail(a_id){
+				window.location = "activityDetail.html?token=" + token + '&activity_id=' + a_id;
+			}
+			
+		</script>
+	</body>
+
+</html>

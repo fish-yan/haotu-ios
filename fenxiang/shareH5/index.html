@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=yes" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/index.css" />
+		<link rel="stylesheet" type="text/css" href="css/swiper.min.css" />
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="http://api.map.baidu.com/api?ak=hoCPfzvXfVC6brOpQuhtkTOn0ebiFnFt&v=2.0&services=false"></script>
+	</head>
+
+	<body>
+		<div class="home">
+			<div class="title">
+				<div class="title_center">
+					<div class="title_img">
+						<img src="img/tuzi.png" style="width: 100%;height: 100%;" />
+					</div>
+					<div class="title_huo">
+						<img src="img/lanhuo.png" style="width: 100%;height: 100%;" />
+					</div>
+					<div class="title_num">
+						<span>--</span>
+					</div>
+				</div>
+				<div class="title_name">
+					---
+				</div>
+				<div class="title_btn">
+					<span>申请加入</span>
+				</div>
+			</div>
+
+			<div class="club_person">
+				<div class="club_left">
+					<img src="img/shuangren.png" />
+				</div>
+				<div class="club_center">
+					<!--<div class="club_img">
+						<img src="img/geren2.png" />
+					</div>-->
+					<!--<div class="club_img">
+						<img src="img/geren2.png" />
+					</div>-->
+				</div>
+				<div class="club_right">
+					<img src="img/rig.png" />
+				</div>
+			</div>
+
+			<div class="actives">
+
+				<div class="swiper-container container-part1 swiper-part1">
+					<div class="swiper-wrapper">
+						<!--<div class="swiper-slide">
+							<div class="active_one">
+								<div class="active_title">
+									<span>第三届羽毛球大赛活动</span>
+								</div>
+								<div class="active_main">
+									<div class="active_address">
+										<img src="img/wei1.png" />
+										<span class="address_name">国定东路275-8号</span>
+										<span class="address_distance"> <888m </span>
+									</div>
+									<div class="active_time">
+										<img src="img/time.png" />
+										<span class="time_date">2019年05月29日    </span>
+										<span class="time_hour"> 18：30 </span>
+									</div>
+									<div class="active_person">
+										<div class="active_left">
+											<div class="active_img">
+												<img src="img/geren2.png" style="width: 100%;height: 100%;" />
+											</div>
+											<div class="active_img">
+												<img src="img/geren2.png" style="width: 100%;height: 100%;" />
+											</div>
+										</div>
+										<div class="active_right">
+											<span class="right_color">02</span>/<span>78</span>
+										</div>
+									</div>
+								</div>
+
+							</div>
+
+						</div>
+						<div class="swiper-slide">Slide 2</div>
+						<div class="swiper-slide">Slide 3</div>-->
+					</div>
+					<!-- Add Pagination -->
+					<div class="swiper-pagination part1"></div>
+				</div>
+
+			</div>
+
+			<div class="tab">
+				<div class="tab_title">
+					<div class="tab_lab" data-id="1">
+						<p class="tab_top">--</p>
+						<p class="border active"></p>
+					</div>
+					<div class="tab_lab" data-id="2">
+						<p class="tab_bom">--</p>
+						<p class="border"></p>
+					</div>
+				</div>
+				<div class="tab_main">
+					<div class="tab_left">
+						<div class="swiper-container container-part2 swiper-part2" style="margin-bottom: 0.5rem;">
+							<div class="swiper-wrapper">
+								<!--<div class="swiper-slide slide-part">
+									<img src="../pkList/img/phone2.png" />
+								</div>
+								<div class="swiper-slide slide-part">Slide 2</div>
+								<div class="swiper-slide slide-part">Slide 3</div>
+								<div class="swiper-slide slide-part">Slide 4</div>-->
+
+							</div>
+							<!-- Add Pagination -->
+							<div class="swiper-pagination part2"></div>
+
+						</div>
+						<p class="jian">--</p>
+						<p class="jie">--</p>
+						
+					</div>
+					<div class="tab_right">
+						公告
+					</div>
+
+				</div>
+			</div>
+			
+			
+			<!--当时普通群的还是显示保险-->
+			<div class="insurance">
+				<div class="insurance_img">
+					<img src="img/bao.jpg"/>
+				</div>
+				<div class="people">
+					<div class="peo_img">
+						<img src="../example/img/touxiang.png"/>
+					</div>
+					<div class="peo_name">
+						--
+					</div>
+				</div>
+				<div class="timer">
+					<div class="yue">
+						-
+					</div>
+					<div class="ri">
+						-
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<div class="mask"></div>
+		<!--弹框-->
+		<div class="alert"></div>
+		<!--自定义弹框--绑定手机号-->
+		<div class="phone_tan">
+			<div class="tan_main">
+				请先绑定手机号~
+			</div>
+			<div class="tan_btn">
+				<button class="btn_give">残忍放弃</button>
+				<button class="btn_confirm">立即绑定</button>
+			</div>
+		</div>
+
+	</body>
+	<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+
+
+		var token = $.cookie("login_token"); //这两个数据给后台要
+//		var group_id = '9'; //这是请求接口需要传送的数据  90-96 132
+		var group_id = getQueryString("group_id"); //这是从上一页截取的 
+
+		var login_type = ''; //0为未登录 1位登录
+		var is_join = ''; //是否入群	
+
+		var latitude = '31.18';
+		var longitude = '121.43'; //经纬度  计算活动地址距离
+		//		viewGroupInfo();
+
+		//			请求接口前首先判断本地存储有没有taoken，有就是登录状态，就显示自己的信息  没有就是现实分享过来的信息
+		if(token == undefined) {
+			//				无值-从连接上面截取token;此时假数据
+			token = getQueryString("token"); //这这是从上一页截取的
+//			token = '0102ea3b87d14077aec88872e85bcb2e';
+			viewGroupInfo(0);
+			login_type = 0;
+
+		} else {
+			//				有值
+			console.log('==========')
+			console.log(token);
+
+			viewGroupInfo(1);
+			login_type = 1;
+		}
+
+		queryGroupDetailActivitys();
+
+		//			获取群信息
+		function viewGroupInfo(type) {
+			$.ajax({
+				type: "post",
+				url: httpUrl + "/api/v1.0/group/viewGroupInfo",
+				data: {
+					group_id: group_id,
+					user_token: token,
+				},
+				dataType: 'json',
+				success: function(data) {
+					console.log(data)
+					if(data.code == 200) {
+						if(data.data != ''){
+							$("title").text(data.data.group_name)
+							$(".title_center .title_num span").text(data.data.battle_number);
+							$(".title_center .title_img img").attr('src', data.data.group_logo);
+							
+							
+							//保险字段
+							$(".insurance .people .peo_img img").attr('src', data.data.group_logo);
+							$(".insurance .people .peo_name").text(data.data.group_name)
+							$(".timer .yue").text(data.data.create_time.slice(6,7));
+							$(".timer .ri").text(data.data.create_time.slice(8,10));
+							
+							
+							
+							
+							
+							
+							if(data.data.groupType == 3){
+								console.log(data.data.remark)
+								console.log(data.data.educateBackground)
+								$(".tab .tab_main .tab_left .jian").html(data.data.remark);
+								$(".tab .tab_main .tab_left .jie").html(data.data.educateBackground);
+								
+							}else{
+								$(".tab .tab_main .tab_left .jian").text(data.data.remark);
+								$('.jie').css("display","none")
+							}
+//							$(".tab .tab_main .tab_left p").text(data.data.remark);
+							$(".tab .tab_main .tab_right").text(data.data.notice);
+							$(".title_name").text(data.data.group_name)
+	
+							//						这里是群成员照片循环
+							var club_img = ''; //首先是一个空字符串
+	
+							for(var i = 0; i < data.data.group_member_images.length; i++) {
+								club_img += '<div class="club_img"><img src="' + data.data.group_member_images[i].url + '" /></div>';
+							}
+							$(".club_center").html(club_img);
+	
+							if(type == 0) {
+								$(".title .title_btn span").text('申请加入');
+							} else {
+								//						现在判断是否进群 
+								if(data.data.is_join == 1 || data.data.is_join == 2) {
+									//							已经进群的
+									//								$(".title .title_btn span").text('退出该群')
+									$(".title .title_btn").css('display', 'none')
+	
+								} else if(data.data.is_join == 0) {
+									$(".title .title_btn span").text('申请加入')
+								} else if(data.data.is_join == 3) {
+									$(".title .title_btn span").text('审核中')
+								}
+							}
+	
+							is_join = data.data.is_join;
+	
+							//轮播
+							var swiperHtmls = '';
+							
+							if(data.data.groupType == 3){
+								if(data.data.remarkImgs != null && data.data.educateImgs != null ){
+									var a = data.data.remarkImgs.concat(data.data.educateImgs);
+									for(var i = 0; i < a.length; i++) {
+										swiperHtmls += '<div class="swiper-slide slide-part"><img src="' + a[i] + '" /></div>';
+									}
+									$(".container-part2 .swiper-wrapper").html(swiperHtmls);
+									//轮播
+									var swiper2 = new Swiper('.container-part2', {
+										pagination: {
+											el: '.part2',
+											type: 'fraction',
+										},
+										loop: true,
+										autoplay: {
+											delay: 2000, //1秒切换一次
+										},
+									});
+								}else{
+									$('.swiper-part2').css("display","none")
+								}
+							}else{
+								if(data.data.remarkImgs != null){
+									for(var i = 0; i < data.data.remarkImgs.length; i++) {
+										swiperHtmls += '<div class="swiper-slide slide-part"><img src="' + data.data.remarkImgs[i] + '" /></div>';
+									}
+									$(".container-part2 .swiper-wrapper").html(swiperHtmls);
+									//轮播
+									var swiper2 = new Swiper('.container-part2', {
+										pagination: {
+											el: '.part2',
+											type: 'fraction',
+										},
+										loop: true,
+										autoplay: {
+											delay: 2000, //1秒切换一次
+										},
+									});
+								}else{
+									$('.swiper-part2').css("display","none")
+								}
+							}
+							
+		
+							
+							
+							if (data.data.groupType == 1) {
+								$('.tab_top').text("俱乐部简介")
+								$('.tab_bom').text("俱乐部公告")
+								$('.insurance').css("display","block")
+								
+							} else if(data.data.groupType == 3){
+								$('.tab_top').text("教练简介")
+								$('.tab_bom').text("教练公告")
+								$('.insurance').css("display","none")
+								
+							}else if(data.data.groupType == 4){
+								$('.tab_top').text("企业简介")
+								$('.tab_bom').text("企业公告")
+								$('.insurance').css("display","none")
+								
+							}else if(data.data.groupType == 5){
+								$('.tab_top').text("商户简介")
+								$('.tab_bom').text("商户公告")
+								$('.insurance').css("display","none")
+								
+							}
+						}
+						
+						
+						
+						
+						
+					} else if(data.code == 300) {
+						$(".active").css('display', 'none')
+						alert(data.msg)
+						window.location = "regist.html"
+					} else {
+						$(".active").css('display', 'none')
+						alert(data.msg)
+					}
+					
+					
+
+				}
+			});
+		}
+
+		//		获取活动列表轮播展示
+		function queryGroupDetailActivitys() {
+			$.ajax({
+				type: "post",
+				url: httpUrl + "/api/v1.0/activity/queryGroupDetailActivitys",
+				data: {
+					group_id: group_id,
+					user_token: token,
+					latitude: latitude,
+					longitude: longitude,
+				},
+				dataType: 'json',
+				success: function(data) {
+					console.log(data)
+					if(data.code == 200) {
+						if(data.data != '') {
+							var swiperHtml = '';
+							$.each(data.data, function(i, item) {
+								swiperHtml += '<div class="swiper-slide" onclick="activeMsg(' + item.activityId + ',' + item.groupType + ')">' +
+									'	<div class="active_one">' +
+									'		<div class="active_title">' +
+									'			<span>' + item.activityName + '</span>' +
+									'		</div>' +
+									'		<div class="active_main">' +
+									'			<div class="active_address">' +
+									'				<img src="img/wei1.png" />' +
+									'				<span class="address_name">' + item.address + '</span>' +
+									'				<span class="address_distance"> <' + item.distance + ' </span>' +
+									'			</div>' +
+									'			<div class="active_time">' +
+									'				<img src="img/time.png" />' +
+									'				<span class="time_date">' + item.startTime + '</span>' +
+									'			</div>' +
+									'			<div class="active_person">' +
+									'				<div class="active_left">';
+								//									var memHtml = '';
+
+								$.each(item.members, function(j, items) {
+									swiperHtml += '<div class="active_img">' +
+										'			<img src="' + items.url + '" style="width: 100%;height: 100%;" />' + //没有数据 所以不知道参数是什么
+										'		</div>';
+								});
+								swiperHtml += '</div>' +
+									'				<div class="active_right">' +
+									'					<span class="right_color">' + item.signupNumber + '</span>/<span>' + item.totalNumber + '</span>' +
+									'				</div>' +
+									'			</div>' +
+									'		</div>' +
+
+									'	</div>' +
+
+									'</div>';
+							});
+
+							$(".container-part1 .swiper-wrapper").html(swiperHtml);
+
+							//轮播图
+
+							var swiper1 = new Swiper('.container-part1', {
+								pagination: {
+									el: '.part1',
+								},
+								loop: true,
+								autoplay: {
+									delay: 2000, //1秒切换一次
+								},
+							});
+						}else{
+							$(".container-part1").css('display','none');
+						}
+
+					} else if(data.code == 300) {
+						$(".actives").css('display', 'none')
+						alert(data.msg)
+						window.location = "regist.html"
+					} else {
+						$(".actives").css('display', 'none')
+						alert(data.msg)
+					}
+
+				}
+			});
+		}
+
+		function activeMsg(activityId, groupType) {
+			if(login_type == 0) {
+				$(".mask").css('display', 'block');
+				$(".phone_tan").css('display', 'block');
+				//				去登陆
+			} else {
+				//				跳转到活动详情
+				window.location = "activityMsg.html?token=" + token + "&group_id=" + group_id + "&activityId=" + activityId + "&groupType=" + groupType;
+			}
+		}
+
+		//			获取手机当前定位
+		getPosition();
+
+		function getPosition() {
+
+			//判断浏览器是否支持HTML5 定位
+
+			if(window.navigator.geolocation) {
+				console.log(1)　　　　　
+				navigator.geolocation.getCurrentPosition(successfulCallback, failCallback)　　　　　
+			} else {　　　　　　
+				alert("你的浏览器不能使用HTML5定位")　　　　
+			}　　
+		}　　
+		function successfulCallback(position) {　　　
+			console.log(position)
+			latitude = position.coords.latitude;　　
+			longitude = position.coords.longitude;　
+
+			alert('1233333')
+			queryGroupDetailActivitys();
+		}　
+		function failCallback(error) {　　　　
+			var text;　　　　
+			switch(error.code) {　　　　　　　　
+				case error.PERMISSION_DENIED:
+
+					text = "用户拒绝对获取地理位置的请求。";　　　　　　
+					break;　　　　　　
+				case error.POSITION_UNAVAILABLE:
+
+					text = "位置信息是不可用的。";　　　　　　　
+					break;　　　
+				case error.TIMEOUT:
+
+					text = "请求用户地理位置超时。";　　　　　　　
+					break;　　　　
+				case error.UNKNOWN_ERROR:
+
+					text = "未知错误。";　　　　　　　　
+					break;　　　　　　
+			}
+
+			　　　　　　
+		}
+
+		//			申请加群
+		$(".title .title_btn").click(function() {
+			//			console.log("11")
+			//			首先判断有没有登录
+			if(login_type == 0) {
+				$(".mask").css('display', 'block');
+				$(".phone_tan").css('display', 'block');
+				//				去登陆
+			} else {
+				//				判断是否加入了群
+				if(is_join == 0) {
+					//					未加入
+					$.ajax({
+						type: "post",
+						url: httpUrl + "/api/v1.0/group/joinGroup",
+						async: true,
+						data: {
+							group_id: group_id,
+							user_token: token,
+						},
+						dataType: 'json',
+						success: function(data) {
+							console.log("22")
+							console.log(data)
+							//							alert('已提交申请')
+							//							setTimeout(function() {
+							viewGroupInfo(1);
+							//							}, 1300)
+							//							成功之后要刷新页面
+						}
+					});
+				} else if(is_join == 1) {
+					//					已加入   退群
+					$.ajax({
+						type: "post",
+						url: httpUrl + "/api/v1.0/group/quitGroup",
+						async: true,
+						data: {
+							group_id: group_id,
+							user_token: token,
+						},
+						dataType: 'json',
+						success: function(data) {
+							console.log("11")
+							console.log(data)
+							//							alert('已退群')
+							//							setTimeout(function() {
+							viewGroupInfo(1);
+							//							}, 1300)
+						}
+					});
+				}
+
+			}
+		})
+
+		$(".phone_tan .btn_confirm").click(function() {
+			$(".mask").css('display', 'none');
+			$(".phone_tan").css('display', 'none');
+			//				此时登录绑定
+			window.location = "regist.html"
+		})
+		$(".phone_tan .btn_give").click(function() {
+			//				放弃登录
+			$(".mask").css('display', 'none');
+			$(".phone_tan").css('display', 'none');
+		})
+
+		//		查看群成员
+		$(".club_person").click(function() {
+			//			if(login_type == 0){
+			//				$(".mask").css('display', 'block');
+			//				$(".phone_tan").css('display', 'block');
+			////				去登陆
+			//			}else{
+			window.location = "memberList.html?token=" + token + "&group_id=" + group_id;
+			//			}
+		})
+
+		//	    tab切换
+		$(".tab .tab_title .tab_lab").click(function() {
+			$(this).children('.border').addClass('active');
+			$(this).siblings().children('.border').removeClass('active');
+
+			var data_id = $(this).attr("data-id");
+			if(data_id == 1) {
+				$(".tab_left").css('display', 'block');
+				$(".tab_right").css('display', 'none');
+			} else {
+				$(".tab_left").css('display', 'none');
+				$(".tab_right").css('display', 'block');
+			}
+		})
+	</script>
+
+</html>

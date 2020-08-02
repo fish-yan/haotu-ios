@@ -1,0 +1,168 @@
+.homePage{
+	position: relative;
+	padding-top: 0.1rem;
+}
+.banner{
+	width: 100%;
+	height: 1.96rem;
+	background: #fff;
+}
+.company{
+	width: 90%;
+	margin: 0.15rem auto;
+}
+.company .name{
+	color: #111111;
+	font-size: 0.21rem;
+	
+}
+.company .name_msg .star-rating{
+	display: inline-block;
+	/*width: 1rem;*/
+	/*height: 0.1rem;*/
+	vertical-align: middle;
+}
+.company .name_msg{
+	color: #111111;
+	font-size: 0.16rem;
+}
+.address{
+	width: 90%;
+	margin: 0.15rem auto;
+	padding: 0.1rem 0;
+	border-top: 1px solid #D5D5D5;
+	border-bottom: 1px solid #D5D5D5;
+}
+.address .left{
+	width: 70%;
+	float: left;
+}
+.address .left .add{
+	width: 0.12rem;
+	height: 0.16rem;
+	display: inline-block;
+	/*vertical-align: middle;*/
+}
+.address .left .aaa{
+	display: inline-block;
+	vertical-align: top;
+	width: calc(100% - 0.2rem);
+}
+.address .left .address_msg{
+	color: #111111;
+	font-size: 0.16rem;
+	vertical-align: middle;
+}
+.address .left .fu{
+	color: #969696;
+	font-size: 0.14rem;
+}
+.address .right{
+	width: 25%;
+	float: right;
+	border-left: #D5D5D5 solid 1px;
+	height: 0.4rem;
+	text-align: center;
+	
+}
+.address .right img{
+	width: 0.2rem;
+	height: 0.2rem;
+	margin: 0.1rem auto;
+}
+.comment{
+	width: 90%;
+	margin: 0.15rem auto;
+}
+
+.comment .title{
+	color: #111111;
+	font-size: 0.22rem;
+}
+.comment .title .num{
+	font-size: 0.14rem;
+	color: #969696;
+}
+.comment .list .list_one{
+	border-bottom: 1px solid #E8E8E8;
+	padding: 0.19rem 0;
+}
+.comment .list .list_one .img{
+	width: 0.5rem;
+	height: 100%;
+	float: left;
+}
+.comment .list .list_one .img .client_img{
+	width: 0.4rem;
+	height: 0.4rem;
+	border-radius: 50%;
+}
+.comment .list .list_one .right{
+	width: calc(100% - 0.5rem);
+	float: right;
+	position: relative;
+}
+.comment .list .list_one .right .name{
+	font-size: 0.15rem;
+	color: #466889;
+}
+.comment .list .list_one .right .time{
+	color: #BCBCBC;
+	font-size: 0.14rem;
+	line-height: 0.2rem;
+}
+.comment .list .list_one .right .msg{
+	color: #111111;
+	font-size: 0.14rem;
+	line-height: 0.2rem;
+}
+.comment .list .list_one .right .praise{
+	position: absolute;
+	top: 0.1rem;
+	right: 0.1rem;
+	width: 0.13rem;
+	height: 0.15rem;
+}
+
+
+.star-rating {
+        unicode-bidi: bidi-override;
+        color: #ddd;
+        font-size: 0;
+        /*height: 0.2rem;*/
+        margin: 0 auto;
+        position: relative;
+        display: table;
+        padding: 0;
+        
+        /*text-shadow: 0px 1px 0 #a2a2a2;*/
+    }
+
+    .star-rating span {
+        /*padding: 0 0.02rem;*/
+        font-size: 0.16rem;
+        margin: 0 0.02rem;
+        /*background: #C81623;*/
+    }
+
+    .star-rating span:after {
+        content: "★";
+    }
+
+    .star-rating-top {
+        color: #FFD700;
+        padding: 0;
+        position: absolute;
+        z-index: 1;
+        display: block;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .star-rating-bottom {
+        padding: 0;
+        display: block;
+        z-index: 0;
+    }

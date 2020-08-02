@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="no-cache">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+		<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/regist.css" />
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		
+					<div style="width: 100%;" class="regist_login">
+
+						<div class="register">
+							<div class="phone">
+								<input id="phone" type="text" placeholder="请输入您的手机号" value="" />
+							</div>
+							<button class="btn" id="getCode">获取验证码</button>
+						</div>
+						<!--验证码-->
+						<div class="register">
+
+							<div class="phone">
+								<input id="code" type="text" placeholder="请输入验证码" value="" />
+							</div>
+						</div>
+
+						<!--男女选择-->
+						<div class="sex">
+							<span class="boy">
+								<img src="img/boy1.png"/>
+								<p>男</p>
+							</span>
+							<span class="girl">
+								<img src="img/girl1.png"/>
+								<p>女</p>
+							</span>
+						</div>
+						<div class="regist">
+							<button id="regist">立即绑定</button>
+						</div>
+					</div>
+
+		<!--弹框-->
+		<div class="alert"></div>
+		
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+//				获取焦点改变颜色
+				$("input").focus(function(){
+					$(this).parents('.register').css('border-color','#03a9f4');
+					$(this).parent('.phone').siblings('.border').children('span').css('border-color','#03a9f4')
+					if($(this).attr('id') == 'phone'){
+						$(this).parent('.phone').siblings('.icon').children('img').attr('src','img/phone2.png');
+					}else if($(this).attr('id') == 'code'){
+						$(this).parent('.phone').siblings('.icon').children('img').attr('src','img/code2.png');
+					}else if($(this).attr('id') == 'password'){
+						$(this).parent('.phone').siblings('.icon').children('img').attr('src','img/pass2.png');
+					}
+					
+				})	
+				
+
+//				点击获取验证码
+				$("#getCode").click(function() {
+					var $phone=$('#phone').val();
+//					判断是否符合手机号码格式
+					var test_phone = /^1[3456789]\d{9}$/;
+					if(!test_phone.test($phone)){
+						alert('手机号码填写不正确')
+						return;
+					}
+					$.ajax({
+	                    type:'post',
+	                    url:httpUrl + '/api/v1.0/user/sendValidCode',
+	                    data:{
+							phone_no:$phone
+						},
+	                    dataType:'json',
+	                    success:function(data){
+							console.log(data);
+							if(data.code == 200){
+								alert('已发送验证码至手机')
+								btnTime()
+								
+							}else{
+								alert(data.msg);
+							}
+							
+							
+	                    },
+						error:function(err){
+							console.log(err)
+						}
+	
+	                })
+					
+					
+				})
+				//				验证码按钮倒计时
+				function btnTime() {
+					var count = 60;
+					var btn = $("#getCode");
+					btn.html("(60s)后重新获取");
+					btn.attr("disabled", true);
+					var clock = setInterval(function() {
+						count--;
+						btn.html('(' + count + 's)后重新获取');
+						if(0 == count) {
+							btn.removeAttr('onclick');
+							btn.html('获取验证码');
+							clearInterval(clock);
+							btn.removeAttr('disabled');
+						}
+					}, 1000)
+				}
+				
+//				点击更换男女性别
+				$(".sex .boy").click(function(){
+					var boy = $(this).children('img').attr('src');
+					var girl = $('.sex .girl').children('img').attr('src');
+					console.log(boy)
+					console.log(girl)
+					if(boy == 'img/boy1.png' && girl == 'img/girl1.png'){
+						$(this).children('img').attr('src','img/boy2.png');
+					}else if(boy == 'img/boy1.png' && girl == 'img/girl2.png'){
+						$(this).children('img').attr('src','img/boy2.png');
+						$('.sex .girl').children('img').attr('src','img/girl1.png');
+					}
+				})
+				$(".sex .girl").click(function(){
+					var girl = $(this).children('img').attr('src');
+					var boy = $('.sex .boy').children('img').attr('src');
+					console.log(boy)
+					console.log(girl)
+					if(girl == 'img/girl1.png' && boy == 'img/boy1.png'){
+						$(this).children('img').attr('src','img/girl2.png');
+					}else if(girl == 'img/girl1.png' && boy == 'img/boy2.png'){
+						$(this).children('img').attr('src','img/girl2.png');
+						$('.sex .boy').children('img').attr('src','img/boy1.png');
+					}
+				})
+				//				点击注册
+				$("#regist").click(function() {
+					console.log(1111)
+					var $phone = $('#phone').val();
+					var $code = $("#code").val();
+//					var $password = $("#password").val();
+//					判断是否符合手机号码格式
+					var test_phone = /^1[3456789]\d{9}$/;
+					if(!test_phone.test($phone)){
+						alert('手机号码填写不正确')
+						return;
+					}
+//					判断验证码
+					var test_int_4 = /^\d{4}$/;
+					if(!test_int_4.test($code)){
+						alert('验证码填写不正确')
+						return;
+					}
+
+//					判断是否选择性别
+					var sexFlag = '';
+					var boy = $('.sex .boy').children('img').attr('src');
+					var girl = $('.sex .girl').children('img').attr('src');
+					if(boy == 'img/boy1.png' && girl == 'img/girl1.png'){
+						alert('请选择性别')
+						return;
+					}else if(boy == 'img/boy1.png' && girl == 'img/girl2.png'){
+						sexFlag = 2;
+					}else if(boy == 'img/boy2.png' && girl == 'img/girl1.png'){
+						sexFlag = 1;
+					}
+					
+					
+//					注册接口
+					$.ajax({
+	                    type:'post',
+	                    url:httpUrl+'/api/v1.0/user/H5Fastlogin',
+	                    data:{
+							phone_no:$phone,
+							validate_code:$code,
+							sex:sexFlag
+						},
+	                    dataType:'json',
+	                    success:function(data){
+							console.log(data);
+							if(data.code == 200){
+								alert('绑定成功');
+								var username = data.data.token_sys;
+//								window.sessionStorage["login_token"] = JSON.stringify(username);
+								btnTime();
+								$.cookie("login_token",username);
+								setTimeout(function(){
+									
+									window.location.replace(document.referrer)
+								},1000)
+								
+								
+								
+							}else{
+								alert(data.msg);
+							}
+							
+							
+	                    },
+						error:function(err){
+							console.log(err)
+						}
+	
+	                })
+					
+					
+					
+					
+				})
+
+			
+		</script>
+	</body>
+
+</html>

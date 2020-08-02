@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>列表</title>
+		<link rel="stylesheet" type="text/css" href="css/base.css" />
+		<link rel="stylesheet" type="text/css" href="css/list.css" />
+		<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<div class="list">
+			<div class="lit">
+				<div class="list_cen">
+					<!--<div class="list_did">
+						<div class="list_cen_left"><img src="img/Avatar sample 271.png" /></div>
+						<div class="list_cen_center">王先生</div>
+						<div class="name">
+							<p><img src="img/zhang.png"/></p>
+						</div>
+					</div>-->
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<script src="js/common.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			//			查看群成员
+			var token = getQueryString("token"); //这这是从上一页截取的  
+			var groupPkId = getQueryString("groupPkId"); //这是从上一页截取的  
+
+			findAllMember();
+
+			function findAllMember() {
+				$.ajax({
+					type: "get",
+					url: httpUrl + "/api/v1.0/groupPkAccept/" + groupPkId,
+					async: true,
+					data: {
+						user_token: token,
+					},
+					dataType: 'json',
+					success: function(data) {
+						console.log(data)
+						if(data.code == 200) {
+							//							先循环群主和管理员
+							var qunzhuHtml = '';
+							$.each(data.data, function(i, item) {
+								qunzhuHtml += '<div class="list_did">' +
+								'			<div class="list_cen_left"><img src="' + item.groupLogo + '"/></div>' +
+								'			<div class="list_cen_center">' + item.groupName + '</div>' ;
+								if(item.status == 2){
+									qunzhuHtml += 
+									'			<div class="name">' +
+									'				<p>' +
+									'				<img src="img/zhang.png"/>' +
+									'				</p>' +
+									'			</div>';
+									
+								}
+								qunzhuHtml += '		</div>';
+
+							});
+
+							$(".list_cen").html(qunzhuHtml)
+
+
+						} else {
+							alert(data.msg)
+						}
+					}
+				});
+			}
+		</script>
+	</body>
+
+</html>
